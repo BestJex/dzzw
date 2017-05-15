@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据交互平台</title>
+    <link rel="stylesheet" href="css/dzzw_fwfx.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <script src="js/jquery-1.7.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/echarts.js"></script>
+</head>
+<body>
+<div class="nav_header">
+    <p><img src="images/home.png" alt="">管理控制台><span class="Service ">数据交互平台</span></p>
+</div>
+<div class="box SMS_platform">
+    <div class="content">
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/Data_exchange_1.png" alt="">
+                <p>前置机数据</p>
+                <p class="backups Light_blue"><span>22</span><span>台</span></p>
+            </div>
+        </div>
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/Data_exchange_2.png" alt="">
+                <p>数据采集量</p>
+                <p class="storage Data_exchange_color1"><span>23107056</span><span></span></p>
+            </div>
+        </div>
+        <div class="top_box_33 ">
+            <div class="tob">
+                <img src="images/Data_exchange_3.png" alt="">
+                <p>数据共享量</p>
+                <p class="backups Data_exchange_green"><span>26231048</span><span></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box SMS_platform">
+    <div class="content" style="">
+        <!--折线图-->
+        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+        <div class="top_box_10">
+            <h3>交换趋势图</h3>
+        </div>
+        <div class="top_box_90">
+            <div style="background: white;padding-top: 10px">
+                <div id="main" style="width:95%;height:290px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--表格-->
+<div class="box">
+    <div class="content content_table">
+        <table id="example" class="display" width="100%"></table>
+    </div>
+</div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    var option = {
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            orient : 'vertical',
+            x:'right',
+            y: 'center',
+            data:['采集量','共享量']
+        },
+
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : ['2017-3-1','2017-3-2','2017-3-3','2017-3-4','2017-3-5','2017-3-6','2017-3-7']
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '单位:万条',
+                nameTextStyle:{
+                    color:'#B0B0B0',
+                    fontSize: 14
+                },
+                axisLabel : {
+                    formatter: '{value}',
+                    textStyle:{
+                        color:'#666666',
+                        fontSize: 14
+                    }
+                }
+            }
+        ],
+        grid : {'y':50},
+        series : [
+
+            {
+                name:'采集量',
+                type:'line',
+                smooth:true,
+                itemStyle: {
+                    normal: {
+                        color:'#00C6FF',
+                        areaStyle:
+                        {type: 'default'},
+                        lineStyle:{
+                            color:'#00C6FF'
+                        }
+                    }
+                },
+                data:[10, 12, 21, 54, 260, 830, 710]
+            },
+            {
+                name:'共享量',
+                type:'line',
+                smooth:true,
+                itemStyle: {
+                    normal: {
+                        color:'#FF2C54',
+                        areaStyle:
+                        {type: 'default'},
+                        lineStyle:{
+                            color:'#FF2C54'
+                        }
+                    }
+                },
+                data:[30, 182, 434, 791, 390, 30, 10]
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    //    表格
+    var dataSet = [
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12", "12"]
+    ];
+
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "aLengthMenu": [[5, 10, 15, 20], [5, 10, 15, "All"]],
+            data: dataSet,
+            columns: [
+                { title: "单位名称" },
+                { title: "接入平台时间"},
+                { title: "系统数量"},
+                { title: "数据采集量"},
+                { title: "数据共享量"}
+            ]
+        } );
+    } );
+</script>
+</html>

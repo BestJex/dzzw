@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据状态最新的资源列表</title>
+    <link rel="stylesheet" href="css/dzzw_fwfx.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <script src="js/jquery-1.7.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <style>
+        .content{
+            font-size: 18px;
+            background: white;
+        }
+        .sjzt h3{
+            color: #333333;
+        }
+        .sjzt_table{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .sjzt_table_border{
+            /*border: 1px solid #DEDEDE;*/
+        }
+        .sjzt td.sorting_1 {
+            background: white;
+            border-right: 1px solid #DEDEDE;
+            border-left: 1px solid #DEDEDE;
+        }
+        .sjzt #example tr th{
+            border-bottom: 1px solid #DEDEDE;
+            /*border-top: none;*/
+        }
+        .sjzt_table #example_wrapper tbody{
+            border: 1px solid #DEDEDE;
+        }
+        table.dataTable.display tbody td {
+            border-bottom: 1px solid #DEDEDE;
+            border-top: none;
+            text-align: center;
+            color: #666;
+        }
+        table.dataTable.display tbody td:last-child{
+            border-right: 1px solid #DEDEDE;
+        }
+        .sjzt_See{
+            color: #666;
+            text-decoration: none;
+        }
+        .sjzt_See:hover{
+            color:#55CCE3;
+        }
+        .dataTables_wrapper .dataTables_length,
+        .dataTables_wrapper .dataTables_filter,
+        .dataTables_wrapper .dataTables_info,
+        .dataTables_wrapper .dataTables_processing,
+        .dataTables_wrapper .dataTables_paginate {
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="nav_header">
+    <p><img src="images/home.png" alt="">管理控制台><span class="Service ">数据状态最新的资源列表</span></p>
+</div>
+<div class="box sjzt">
+    <div class="content">
+        <h3>数据状态最新的资源列表</h3>
+        <div class="sjzt_table">
+            <table id="example" class="display sjzt_table_border" width="100%"></table>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var dataSet = [
+        [ "市人社局",'王二', "2017-4-5 10:54:54", "2"],
+        [ "市人社局1", '王二',"2017-4-5 10:54:54", "2"],
+        [ "市人社局1", '王一',"2017-4-5 10:54:54", "2"],
+        [ "市人社局1", '王二',"2017-4-5 10:54:54", "2"],
+        [ "市人社局2", '王二',"2017-4-5 10:54:54", "2"],
+        [ "市人社局3",'王二', "2017-4-5 10:54:54", "2"],
+        [ "市人社局4",'王二', "2017-4-5 10:54:54", "2"],
+        [ "市人社局4",'王二', "2017-4-5 10:54:54", "2"],
+        [ "市人社局5",'王二', "2017-4-5 10:54:54", "2"],
+        [ "市人社局5",'王二', "2017-4-5 10:54:54", "2"],
+        [ "市人社局6", '王二',"2017-4-5 10:54:54", "2"],
+        [ "市人社局6",'王二', "2017-4-5 10:54:54", "2"],
+        [ "市人社局", '王二',"2017-4-5 10:54:54", "2"]
+    ];
+
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "aLengthMenu": [[9, 10, 15, 20], [ "All"]],
+            data: dataSet,
+            columns: [
+                { title: "单位名称" },
+                { title: "联系人员"},
+                { title: "联系方式"},
+                { title: "申请容量(TB)"},
+                { title: "操作",
+                    render:function () {
+                        var HTML = "<a href='javascript:void(0);'  class='delete btn btn-default btn-xs sjzt_See'  ><i class='fa fa-times'></i> 查看</a>";
+                        return HTML;
+                    }
+                }
+            ]
+        } );
+        $(".dataTables_paginate").on("click", "a", function() {
+            uniteTab('example',1)
+        });
+//        function MergeCell(tableId, startRow, endRow, col) {
+//            var tb = document.getElementById(tableId);
+//            if (col >= tb.rows[0].cells.length) {
+//                return;
+//            }
+//            //当检查第0列时检查所有行
+//            if (col == 0) {
+//                endRow = tb.rows.length - 1;
+////                console.log(startRow);
+//            }
+//            for (var i = startRow; i < endRow; i++) {
+//                //subCol:已经合并了多少列
+//                var subCol = tb.rows[0].cells.length - tb.rows[startRow].cells.length;
+////                console.log("开始"+tb.rows[0].cells.length);
+////                console.log("结束"+tb.rows[startRow].cells.length);
+////                console.log(subCol);
+//                //程序是自左向右合并，所以下一行一直取第0列
+//                if (tb.rows[startRow].cells[col - subCol].innerHTML == tb.rows[i + 1].cells[0].innerHTML) {
+//
+//                    //如果相同则删除下一行的第0列单元格
+//                    tb.rows[i + 1].removeChild(tb.rows[i + 1].cells[0]);
+//                    //更新rowSpan属性
+//                    tb.rows[startRow].cells[col - subCol].rowSpan = (tb.rows[startRow].cells[col - subCol].rowSpan | 0) + 1;
+//                    //当循环到终止行前一行并且起始行和终止行不相同时递归(因为上面的代码已经检查了i+1行，所以此处只到endRow-1)
+//                    if (i == endRow - 1 && startRow != endRow) {
+//                        MergeCell(tableId, startRow, endRow, col + 1);
+//                    }
+//                }
+//                else {
+//                    //起始行，终止行不变，检查下一列
+//                    MergeCell(tableId, startRow, i, col + 1);
+//                    //增加起始行
+//                    startRow = i + 1;
+//                }
+//            }
+//        }
+//        MergeCell('example', 0, 0, 0);
+
+
+        function uniteTab(tableId,col) {
+            //col-- 需要合并单元格的列 1开始
+            var tb=document.getElementById(tableId);
+            tb.style.display='';
+            var j = 0;
+            var rowCount = tb.rows.length; //   行数
+            var colCount = tb.rows[0].cells.length; //   列数
+            var obj1 = null;
+            var obj2 = null;
+            //为每个单元格命名
+            for (i = 0; i < rowCount; i++) {
+                for (j = 0; j < colCount; j++) {
+                    tb.rows[i].cells[j].id = "tb__" + i.toString() + "_" + j.toString();
+                }
+            }
+            //合并行
+            for (i = 0; i < colCount; i++) {
+                if (i == col) break;
+                obj1 = document.getElementById("tb__0_" + i.toString());
+                for (j = 1; j < rowCount; j++) {
+                    obj2 = document.getElementById("tb__" + j.toString() + "_" + i.toString());
+                    if (obj1.innerText == obj2.innerText) {
+                        obj1.rowSpan++;
+                        obj2.parentNode.removeChild(obj2);
+                    } else {
+                        obj1 = document.getElementById("tb__" + j.toString() + "_" + i.toString());
+                    }
+                }
+            }
+            //合并列
+            for (i = 0; i < rowCount; i++) {
+                colCount = tb.rows[i].cells.length;
+                obj1 = document.getElementById(tb.rows[i].cells[0].id);
+                for (j = 1; j < colCount; j++) {
+                    if (j >= col) break;
+                    if (obj1.colSpan >= col) break;
+
+                    obj2 = document.getElementById(tb.rows[i].cells[j].id);
+                    if (obj1.innerText == obj2.innerText) {
+                        obj1.colSpan++;
+                        obj2.parentNode.removeChild(obj2);
+                        j = j - 1;
+                    }
+                    else {
+                        obj1 = obj2;
+                        j = j + obj1.rowSpan;
+                    }
+                }
+            }
+        }
+        uniteTab('example',1)
+
+    } );
+</script>
+</html>

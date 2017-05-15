@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电子政务外网</title>
+    <link rel="stylesheet" href="css/dzzw_fwfx.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <script src="js/jquery-1.7.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/echarts-liquidfill.js"></script>
+</head>
+<body>
+<div class="nav_header">
+    <p><img src="images/home.png" alt="">管理控制台><span class="Service ">电子政务外网</span></p>
+</div>
+<div class="box">
+    <div class="content">
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/government_extranet_1.png" alt="">
+                <p>政务外网IP总数</p>
+            </div>
+            <div class="government_extranet_top">
+                <span class="Light_blue">800</span><span class="Light_blue">个</span>
+                <span class="BackslashColor">/</span>
+                <span class="Light_blue">占用</span><span class="Light_blue">74%</span>
+            </div>
+        </div>
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/government_extranet_2.png" alt="">
+                <p>互联网宽带</p>
+                <p class="storage _blue"><span>9.5</span><span>GB</span></p>
+            </div>
+        </div>
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/government_extranet_3.png" alt="">
+                <p>互联网IP总数</p>
+            </div>
+            <div class="government_extranet_top">
+                <span class="Data_exchange_green">40000</span><span class="Data_exchange_green">个</span>
+                <span class="BackslashColor">/</span>
+                <span class="Data_exchange_green">占用</span><span class="Data_exchange_green">80%</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box">
+    <div class="content">
+        <div class="top_box_49">
+            <!--折线图-->
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div style="background: white">
+                <div id="main" style="width:100%;height: 300px;margin-top:-10px;"></div>
+            </div>
+        </div>
+        <div class="top_box_49">
+            <!--折线图-->
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div style="background: white">
+                <div id="main1" style="width:100%;height:300px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--表格-->
+<div class="box">
+    <div class="content content_table" style="height: 300px;overflow-y: auto">
+        <table id="example" class="display" width="100%"></table>
+    </div>
+</div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    var myChart1 = echarts.init(document.getElementById('main1'));
+    // 指定图表的配置项和数据
+    var option = {
+        title:{
+            text:'政务外网IP',
+            textStyle:{
+                fontSize: 16,
+                color:'#333333'
+            }
+        },
+        series: [{
+            type: 'liquidFill',
+            animation: true,
+            waveAnimation: true,
+            backgroundStyle: {
+                color: '#76A3EF'
+            },
+            color: ['#2E6ACE', '#3275E4', '#4F83DA'],
+            center: ['50%', '50%'],
+            waveLength: '60%',
+            amplitude: 8,
+            radius: '70%',
+            label: {
+                normal: {
+                    formatter: function() {
+                        return '未用2000\n\n已用4000';
+                    },
+                    textStyle: {
+                        fontSize: 22,
+                        color: 'white'
+                    },
+                    position: ['50%', '40%']
+                }
+            },
+            outline: {
+                itemStyle: {
+                    borderColor: '#76A3EF',
+                    borderWidth: 5
+                },
+                borderDistance: 0
+            },
+            data: [0.66, 0.65, 0.64]
+        }]
+    };
+
+//
+    var option1 = {
+        title : {
+            text: '独享互联网宽带统计',
+            textStyle:{
+                fontSize: 16,
+                color:'#333333'
+            }
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['部门'],
+            show: false
+        },
+        calculable : true,
+        grid : {'y':80},
+        xAxis : [
+            {
+                type : 'value',
+                boundaryGap : [0, 0.01]
+            }
+        ],
+        yAxis : [
+            {
+                type : 'category',
+                name : '部门',
+                axisLine:{
+                    lineStyle:{
+                        color:'#666666'
+                    }
+                },
+                data : ['市财政局','市司法局','市人社局','市教育局','市公安局']
+            }
+        ],
+        series : [
+            {
+                name:'部门',
+                type:'bar',
+                itemStyle:{normal:{color:'#a2d3f6'}},
+                data:[18203, 23489, 29034, 104970, 131744]
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    myChart1.setOption(option1);
+
+    //    表格
+    var dataSet = [
+        [ "市人社局", "2017-2-5 10:54:14", "12", "32"],
+        [ "市人社局1", "2017-4-6 10:55:54", "25", "22"],
+        [ "市人社局1", "2017-4-2 10:54:52", "12", "32"],
+        [ "市人社局1", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局2", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局3", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局4", "2016-4-5 10:34:54", "21", "2"],
+        [ "市人社局4", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局5", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局5", "2017-4-6 10:54:51", "12", "22"],
+        [ "市人社局6", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局6", "2017-4-3 10:54:24", "1", "212"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"]
+    ];
+
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "aLengthMenu": [[50, 10, 15, 20], [50, 10, 15, "All"]],
+            data: dataSet,
+            columns: [
+                { title: "单位名称" },
+                { title: "最近服务时间"},
+                { title: "IP用量(个)"},
+                { title: "接入系统(套)"}
+            ]
+        } );
+        function MergeCell(tableId, startRow, endRow, col) {
+            var tb = document.getElementById(tableId);
+            if (col >= tb.rows[0].cells.length) {
+                return;
+            }
+            //当检查第0列时检查所有行
+            if (col == 0) {
+                endRow = tb.rows.length - 1;
+            }
+            for (var i = startRow; i < endRow; i++) {
+                //subCol:已经合并了多少列
+                var subCol = tb.rows[0].cells.length - tb.rows[startRow].cells.length;
+                //程序是自左向右合并，所以下一行一直取第0列
+                if (tb.rows[startRow].cells[col - subCol].innerHTML == tb.rows[i + 1].cells[0].innerHTML) {
+                    //如果相同则删除下一行的第0列单元格
+                    tb.rows[i + 1].removeChild(tb.rows[i + 1].cells[0]);
+                    //更新rowSpan属性
+                    tb.rows[startRow].cells[col - subCol].rowSpan = (tb.rows[startRow].cells[col - subCol].rowSpan | 0) + 1;
+                    //当循环到终止行前一行并且起始行和终止行不相同时递归(因为上面的代码已经检查了i+1行，所以此处只到endRow-1)
+                    if (i == endRow - 1 && startRow != endRow) {
+                        MergeCell(tableId, startRow, endRow, col + 1);
+                    }
+                } else {
+                    //起始行，终止行不变，检查下一列
+                    MergeCell(tableId, startRow, i, col + 1);
+                    //增加起始行
+                    startRow = i + 1;
+                }
+            }
+        }
+        MergeCell('example', 0, 0, 0);
+    } );
+</script>
+</html>

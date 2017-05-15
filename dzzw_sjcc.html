@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/dzzw_fwfx.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <script src="js/jquery-1.7.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/echarts-all.js"></script>
+</head>
+<body>
+<div class="nav_header">
+    <p><img src="images/home.png" alt="">管理控制台><span class="Service ">数据存储</span></p>
+</div>
+<div class="box">
+    <div class="content">
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/used.png" alt="">
+                <p>已用容量</p>
+                <p class="backups Light_blue"><span>920</span><span>TB</span></p>
+            </div>
+        </div>
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/storage.png" alt="">
+                <p>存储总量</p>
+                <p class="storage _blue"><span>500</span><span>TB</span></p>
+            </div>
+        </div>
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/backups.png" alt="">
+                <p>备份总量</p>
+                <p class="backups Lavender"><span>500</span><span>TB</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box">
+    <div class="content">
+        <div class="top_box_49">
+            <!--折线图-->
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div style="background: white">
+                <div id="main" style="width:100%;height:300px;"></div>
+            </div>
+        </div>
+        <div class="top_box_49">
+            <!--折线图-->
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div style="background: white">
+                <div id="main1" style="width:100%;height:300px;margin-top: 10px;margin-left: 10px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--表格-->
+<div class="box">
+    <div class="content content_table">
+        <table id="example" class="display" width="100%"></table>
+    </div>
+</div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    var myChart1 = echarts.init(document.getElementById('main1'));
+    // 指定图表的配置项和数据
+    var option = {
+        title : {
+            text: '数据增长趋势图数据情况',
+            textStyle:{
+                fontSize: 16,
+                color:'#666'
+            }
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            show:false,
+            data:['数量','趋势']
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+//                boundaryGap : false,
+                data: ["2008","2009","2010","2011","2012","2013","2014","2015","2016","2017"]
+            }
+        ],
+        yAxis: {
+            type : 'value',
+            name : '数量',
+            axisLine:{
+                lineStyle:{
+                    color:'#666666'
+                }
+            },
+            axisLabel : {
+                formatter: '{value}TB'
+            }
+        },
+        series : [
+            {
+                name: '数量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20,23,34,34,35]
+            },
+            {
+                name: '趋势',
+                type: 'line',
+                data: [5, 20, 36, 10, 10, 20,23,34,34,35]
+            }
+        ]
+    };
+    var option1 = {
+        title : {
+            text: '存储介质统计概况',
+            textStyle:{
+                fontSize: 16,
+                color:'#666'
+            }
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c}"
+        },
+        legend: {
+            orient:'vertical',
+            x : 'left',
+            y : 'center',
+            data:['SSD','SATA','SAS']
+        },
+        series : [
+            {
+                name:'',
+                type:'pie',
+                radius : [30, 100],
+                roseType : 'radius',
+                data:[
+                    {value:10, name:'SSD'},
+                    {value:5, name:'SATA'},
+                    {value:15, name:'SAS'}
+                ],
+                itemStyle:{
+                    normal:{
+                        label:{
+                            show: true,
+                            formatter: "备份总量{b}",
+                            textStyle:{
+                                fontSize:20
+                            },
+                            labelLine :{show:true}
+                        }
+                    }
+                }
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    myChart1.setOption(option1);
+
+//    表格
+    var dataSet = [
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"]
+    ];
+
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "aLengthMenu": [[5, 10, 15, 20], [5, 10, 15, "All"]],
+            data: dataSet,
+            columns: [
+                { title: "单位名称" },
+                { title: "最近服务时间"},
+                { title: "接入系统(套)"},
+                { title: "申请容量(TB)"}
+            ]
+        } );
+    } );
+</script>
+</html>

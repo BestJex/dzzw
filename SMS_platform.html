@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>政务短信平台</title>
+    <link rel="stylesheet" href="css/dzzw_fwfx.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <script src="js/jquery-1.7.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/echarts-all.js"></script>
+    <script src="js/dpsjz.js"></script>
+</head>
+<body>
+<div class="nav_header">
+    <p><img src="images/home.png" alt="">管理控制台><span class="Service ">政务短信平台</span></p>
+</div>
+<div class="box SMS_platform">
+    <div class="content">
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/SMS_platform_news.png" alt="">
+                <p>短信账户</p>
+                <p class="backups _blue"><span>800</span><span>个</span></p>
+            </div>
+        </div>
+        <div class="top_box_33 positionRelative">
+            <div class="tob">
+                <img src="images/SMS_platform_sendOut.png" alt="">
+                <p>发送指令</p>
+                <p class="storage Lavender"><span>20890</span><span>次</span></p>
+            </div>
+            <div class="positionAbsolute tob_box">
+                <p><span class="backgroundColor backgroundColor1"></span><span class="padding_lr">移动:</span><span>18090次</span></p>
+                <p class="paddingTop_10"><span class="backgroundColor backgroundColor2"></span><span class="padding_lr">联通:</span><span>2000次</span></p>
+                <p class="paddingTop_10"><span class="backgroundColor backgroundColor3"></span><span class="padding_lr">电信:</span><span>800次</span></p>
+            </div>
+        </div>
+        <div class="top_box_33 positionRelative">
+            <div class="tob">
+                <img src="images/SMS_platform_ShortMessage.png" alt="">
+                <p>已发送短信</p>
+                <p class="backups  Light_blue"><span>2208</span><span>万条</span></p>
+            </div>
+            <div class="positionAbsolute tob_box">
+                <p><span class="backgroundColor backgroundColor1"></span><span class="padding_lr">移动:</span><span>1600万条</span></p>
+                <p class="paddingTop_10"><span class="backgroundColor backgroundColor2"></span><span class="padding_lr">联通:</span><span>500万条</span></p>
+                <p class="paddingTop_10"><span class="backgroundColor backgroundColor3"></span><span class="padding_lr">电信:</span><span>108万条</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box SMS_platform">
+    <div class="content" style="">
+            <!--折线图-->
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+        <div class="top_box_10">
+            <h3>资源用量趋势图</h3>
+        </div>
+        <div class="top_box_90">
+            <div style="background: white;">
+                <div id="main" style="width:98%;height:300px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--表格-->
+<div class="box">
+    <div class="content content_table">
+        <table id="example" class="display" width="100%"></table>
+    </div>
+</div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    var  option = {
+        timeline:{
+            data:[
+                '2002','2003','2004','2005','2006',
+                '2007','2008','2009','2010','2011'
+            ],
+            autoPlay : true,
+            playInterval : 1000
+        },
+        options:[
+            {
+                tooltip : {'trigger':'axis'},
+                legend : {
+                    orient : 'vertical',
+                    x:'right',
+                    y: 'center',
+                    'data':['单位1','单位2','单位3','单位4']
+                },
+                calculable : true,
+                grid : {'y':30,'x':50,'x2':0,'width':'85%'},
+                xAxis : [{
+                    'type':'category',
+                    'axisLabel':{'interval':0},
+                    'data':['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                }],
+                yAxis : [
+                    {
+                        'type':'value',
+                        'name':'单位 : W',
+                        axisLine:{
+                            lineStyle:{
+                                color:'#666666'
+                            }
+                        }
+                    }
+                    ,
+                    {
+                        'type':'value',
+                        'name':'单位 : 个',
+                        axisLine:{
+                            lineStyle:{
+                                color:'#666666'
+                            }
+                        }
+                    }
+                ],
+                series : [
+                    {
+                        'name':'单位1',
+                        'type':'bar',
+                        'data': dataMap.dataGDP['2002'],
+                        itemStyle:{
+                            normal:{
+                                color:'#AFF8A9'
+                            }
+                        }
+                    },
+                    {
+                        'name':'单位2','yAxisIndex':1,'type':'bar',
+                        'data': dataMap.dataPI['2002'],
+                        itemStyle:{
+                            normal:{
+                                color:'#FFBB9B'
+                            }
+                        }
+                    },
+                    {
+                        'name':'单位3','yAxisIndex':1,'type':'bar',
+                        'data': dataMap.dataSI['2002'],
+                        itemStyle:{
+                            normal:{
+                                color:'#FFCA81'
+                            }
+                        }
+                    },
+                    {
+                        'name':'单位4','yAxisIndex':1,'type':'line',
+                        smooth: true,
+                        'data': dataMap.dataTI['2002'],
+                        itemStyle:{
+                            normal:{
+                                color:'#74B295'
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2003']},
+                    {'data': dataMap.dataPI['2003']},
+                    {'data': dataMap.dataSI['2003']},
+                    {'data': dataMap.dataTI['2003']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2004']},
+                    {'data': dataMap.dataPI['2004']},
+                    {'data': dataMap.dataSI['2004']},
+                    {'data': dataMap.dataTI['2004']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2005']},
+                    {'data': dataMap.dataPI['2005']},
+                    {'data': dataMap.dataSI['2005']},
+                    {'data': dataMap.dataTI['2005']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2006']},
+                    {'data': dataMap.dataPI['2006']},
+                    {'data': dataMap.dataSI['2006']},
+                    {'data': dataMap.dataTI['2006']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2007']},
+                    {'data': dataMap.dataPI['2007']},
+                    {'data': dataMap.dataSI['2007']},
+                    {'data': dataMap.dataTI['2007']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2008']},
+                    {'data': dataMap.dataPI['2008']},
+                    {'data': dataMap.dataSI['2008']},
+                    {'data': dataMap.dataTI['2008']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2009']},
+                    {'data': dataMap.dataPI['2009']},
+                    {'data': dataMap.dataSI['2009']},
+                    {'data': dataMap.dataTI['2009']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2010']},
+                    {'data': dataMap.dataPI['2010']},
+                    {'data': dataMap.dataSI['2010']},
+                    {'data': dataMap.dataTI['2010']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2011']},
+                    {'data': dataMap.dataPI['2011']},
+                    {'data': dataMap.dataSI['2011']},
+                    {'data': dataMap.dataTI['2011']}
+                ]
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    //    表格
+    var dataSet = [
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "2", "12"]
+    ];
+
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "aLengthMenu": [[5, 10, 15, 20], [5, 10, 15, "All"]],
+            data: dataSet,
+            columns: [
+                { title: "单位名称" },
+                { title: "接入时间"},
+                { title: "系统数量"},
+                { title: "短信发送量(TB)"}
+            ]
+        } );
+    } );
+</script>
+</html>

@@ -1,0 +1,199 @@
+html,body,div,p{
+    margin: 0;
+    padding: 0;
+
+}
+.green,.Light_blue{
+    color: #65c8ff;
+}
+.Lavender{
+    color: #a79bf5;
+}
+
+.public_left{
+    float: left!important;
+}
+.public_right{
+    float: right!important;
+}
+.nav_header{
+    height:50px;
+    line-height:50px;
+    font-size: 16px;
+    background: #eaedf1;
+}
+.nav_header img{
+    padding: 12px;
+    vertical-align: middle;
+}
+.Service{
+    color: #00c1de;
+}
+.box{
+    background: -webkit-linear-gradient(left, #dde0e4 , #eaedf1); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #dde0e4, #eaedf1); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #dde0e4, #eaedf1); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #dde0e4 , #eaedf1); /* 标准的语法 */
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+.content{
+    width: 96%;
+    margin: 15px 2% 0px 2%;
+    /*border:1px solid #cccccc;*/
+    overflow: hidden;
+}
+.tob p{
+    font-size: 18px;
+}
+.tob p span{
+    font-size: 24px;
+}
+.content .top_box{
+    width: 24.25%;
+    height: 200px;
+    float: left;
+    margin-left: 1%;
+    box-sizing: border-box;
+    background: white;
+
+}
+.content .top_box_33{
+    width: 32.6%;
+    /*height: 200px;*/
+    float: left;
+    margin-left: 1%;
+    box-sizing: border-box;
+    background: white;
+    overflow: hidden;
+
+}
+.content_table{
+    background: white;
+}
+.content .top_box_49{
+    width: 49.5%;
+    /*height: 200px;*/
+    float: left;
+    margin-left: 1%;
+    box-sizing: border-box;
+    background: white;
+
+}
+.content .top_box1{
+    border: 1px solid #00a6fe;
+    box-shadow: 2px 2px 4px #00a6fe;
+}
+.content .top_box2{
+    border: 1px solid #cc99ff;
+    box-shadow: 2px 2px 4px #cc99ff;
+}
+.content .top_box3{
+    border: 1px solid #75e781;
+    box-shadow: 2px 2px 4px #75e781;
+}
+.content .top_box4{
+    border: 1px solid #cc99ff;
+    box-shadow: 2px 2px 4px #cc99ff;
+}
+#main,#main1{
+    background: white;
+}
+.content div:first-child{
+    margin-left: 0;
+}
+
+.content div .tob{
+    width: 200px;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.top_box a{
+    color: black;
+    text-decoration:none;
+}
+.content img {
+    padding-top: 21px;
+}
+.box_1{
+    margin-top: 5px;
+}
+.box_left{
+    width: 45%;
+}
+.box_right{
+    width: 54%;
+    background: white;
+    overflow: hidden;
+}
+table {
+    width: 100%;
+    text-align: center;
+}
+.tob .storage,.tob .backups{
+    font-size: 28px;
+}
+
+
+/*架构图*/
+.Framework_head_icons{
+    position: relative;
+}
+.Framework_head_icons img {
+    position: absolute;
+    top: -4px;
+    left: 30px;
+    z-index: 99;
+}
+.tap_box_blue {
+    background: #46acf4;
+    height: 140px;
+    border-radius: 6px;
+    margin-top: 10px;
+    position: relative;
+    color: white;
+    overflow: hidden;
+}
+.content .Framework_head{
+    background: none;
+}
+.Framework_head_icons{
+    position: absolute;
+    top: 0;
+}
+.Framework_head_box{
+    overflow: hidden;
+}
+.Framework_head_box .Framework_head_boxLeft{
+    width: 33%;
+    height: 140px;
+    background: #2093e4;
+}
+.Framework_head_boxRight{
+    width: 67%;
+}
+div .Framework_head_box .Framework_head_inter {
+    width: 75px;
+    margin: 0 auto;
+}
+div .Framework_head_box .Framework_head_inter img{
+    padding-top: 0;
+}
+div .Framework_head_box .Framework_head_inter h3{
+    margin-top: 5px;
+    padding: 0;
+}
+div .Framework_head_box .Framework_head_right_box {
+    margin: 25px auto auto 76px;
+}
+.Framework_head_right_box p {
+    font-size: 18px;
+}
+.Framework_head_right_box b {
+    font-size: 48px;
+}
+.Framework_head_right_box span {
+    font-size: 30px;
+    margin-left: 20px;
+}

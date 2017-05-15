@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>架构图</title>
+    <link rel="stylesheet" href="css/dzzw_fwfx.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="worldcloud1.js"></script>
+    <style>
+        .Pie_chart,.Pie_chart_circle,.Pie_chart_percent{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+        .Pie_chart{
+            top:50px;
+            left: 50%;
+            margin-left: -100px;
+            background-color: #ccc;
+        }
+        .Pie_chart_circle{
+            box-sizing: border-box;
+            border:20px solid #ccc;
+            clip:rect(0,200px,200px,100px);
+        }
+        .Pie_chart_clip_auto{
+            clip:rect(auto, auto, auto, auto);
+        }
+        .Pie_chart_percent{
+            box-sizing: border-box;
+            top:-20px;
+            left:-20px;
+        }
+        .Pie_chart_left{
+            transition:transform ease;
+            border:20px solid blue;
+            clip: rect(0,100px,200px,0);
+        }
+        .Pie_chart_right{
+            border:20px solid blue;
+            clip: rect(0,200px,200px,100px);
+        }
+        .Pie_chart_wth0{
+            width:0;
+        }
+        .num{
+            position: absolute;
+            box-sizing: border-box;
+            width: 160px;
+            height: 160px;
+            line-height: 160px;
+            text-align: center;
+            font-size: 40px;
+            left: 20px;
+            top: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            z-index: 1;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="box">
+    <div class="content">
+        <div class="top_box_33 Framework_head">
+            <!--<div class="Framework_head_left public_left Framework_head_left1">-->
+                <!--<div class="Framework_head_left_box">-->
+                    <!--<img src="images/Framework_head1_1_1.png" alt="" >-->
+                    <!--<h3>服务部门</h3>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="Framework_head_right public_right Framework_head_right1">-->
+                <!--<div class="Framework_head_right_box">-->
+                    <!--<p>共计</p>-->
+                    <!--<p><b>68</b><span>家</span></p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="Framework_head_icons">
+                <img src="images/Framework_head_icon1.png" alt="">
+            </div>
+            <div class="tap_box_blue">
+                <div class="Framework_head_box">
+                    <div class="Framework_head_boxLeft Framework_head_boxLeft1 public_left">
+                        <div class="Framework_head_inter">
+                            <img src="images/Framework_head1_1_1.png" alt="" >
+                            <h3>服务部门</h3>
+                        </div>
+                    </div>
+                    <div class="Framework_head_boxRight Framework_head_boxRight1 public_right">
+                        <div class="Framework_head_right_box">
+                            <p>共计</p>
+                            <p><b>68</b><span>家</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_box_33 Framework_head">
+            <!--<div class="Framework_head_left public_left Framework_head_left2">-->
+                <!--<div class="Framework_head_left_box">-->
+                    <!--<img src="images/Framework_head2_2_2.png" alt="" >-->
+                    <!--<h3>服务系统</h3>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="Framework_head_right public_right Framework_head_right2">-->
+                <!--<div class="Framework_head_right_box">-->
+                    <!--<p>共计</p>-->
+                    <!--<p><b>1160</b><span>套</span></p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="Framework_head_icons">
+                <img src="images/Framework_head_icon2.png" alt="">
+            </div>
+            <div class="tap_box_blue">
+                <div class="Framework_head_box">
+                    <div class="Framework_head_boxLeft Framework_head_boxLeft2 public_left">
+                        <div class="Framework_head_inter">
+                            <img src="images/Framework_head2_2_2.png" alt="" >
+                            <h3>服务系统</h3>
+                        </div>
+                    </div>
+                    <div class="Framework_head_boxRight Framework_head_boxRight2 public_right">
+                        <div class="Framework_head_right_box">
+                            <p>共计</p>
+                            <p><b>1160</b><span>套</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_box_33 Framework_head">
+            <!--<div class="Framework_head_left public_left Framework_head_left3">-->
+                <!--<div class="Framework_head_left_box">-->
+                    <!--<img src="images/Framework_head3_3_3.png" alt="" >-->
+                    <!--<h3>服务受理</h3>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="Framework_head_right public_right Framework_head_right3">-->
+                <!--<div class="Framework_head_right_box">-->
+                    <!--<p>共计</p>-->
+                    <!--<p><b>2308</b><span>次</span></p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="Framework_head_icons">
+                <img src="images/Framework_head_icon3.png" alt="">
+            </div>
+            <div class="tap_box_blue">
+                <div class="Framework_head_box">
+                    <div class="Framework_head_boxLeft Framework_head_boxLeft3 public_left">
+                        <div class="Framework_head_inter">
+                            <img src="images/Framework_head3_3_3.png" alt="" >
+                            <h3>服务受理</h3>
+                        </div>
+                    </div>
+                    <div class="Framework_head_boxRight Framework_head_boxRight3 public_right">
+                        <div class="Framework_head_right_box">
+                            <p>共计</p>
+                            <p><b>2308</b><span>次</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box">
+    <div class="content">
+        <!--content_left-->
+        <div class="top_box_15 borderRadius Framework_box1_15">
+            <div class="Framework_block">
+                <img src="images/Framework_Peration.png"  alt="">
+                <p>运维体系</p>
+            </div>
+            <ul class="Framework_list Framework_list_left">
+                <li class="list_block">
+                    <div class="list_block_left public_left">
+                        <img src="images/Framework_fault.png"  alt="">
+                    </div>
+                    <div class="list_block_right public_left">
+                        <p><span>28次</span></p>
+                        <p>故障</p>
+                    </div>
+                </li>
+                <li class="list_block">
+                    <div class="list_block_left public_left">
+                        <img src="images/Framework_7.png"  alt="">
+                    </div>
+                    <div class="list_block_right public_left">
+                        <p><span>86次</span></p>
+                        <p>技术支持</p>
+                    </div>
+                </li>
+                <li class="list_block">
+                    <div class="list_block_left public_left">
+                        <img src="images/Framework_8.png"  alt="">
+                    </div>
+                    <div class="list_block_right public_left">
+                        <p><span>248次</span></p>
+                        <p>咨询</p>
+                    </div>
+                </li>
+                <li class="list_block">
+                    <div class="list_block_left public_left">
+                        <img src="images/Framework_9.png"  alt="">
+                    </div>
+                    <div class="list_block_right public_left">
+                        <p><span>684次</span></p>
+                        <p>巡检</p>
+                    </div>
+                </li>
+                <li class="list_block">
+                    <div class="list_block_left public_left">
+                        <img src="images/Framework_11.png"  alt="">
+                    </div>
+                    <div class="list_block_right public_left">
+                        <p><span>28</span></p>
+                        <p>演练</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--content_content-->
+        <div class="top_box_69 borderRadius Framework_box2_69">
+            <!--content_top-->
+            <div class="Framework_content_box borderRadius">
+                <div class="Framework_content_left public_left">
+                    <div class="Framework_content_left_inner">
+                        <p><img src="images/Framework_brace.png"  alt=""></p>
+                        <p class="Framework_content_left_text">支撑系统</p>
+                    </div>
+                </div>
+                <div class="Framework_content_right Percentage public_right">
+                    <!--<img src="images/Framework_1.png" alt="">-->
+                    <div id="main1" style="width:100%;margin-top: 10px;border:1px solid red" class="Framework_main1 borderRadius"></div>
+                </div>
+            </div>
+            <!--content_content-->
+            <div class="Framework_content_block borderRadius">
+                <div class="Framework_content_block_left public_left">
+                    <div class="Framework_content_left_inner">
+                        <p><img src="images/Framework_6.png"  alt=""></p>
+                        <p class="Framework_content_left_text">公共应用</p>
+                    </div>
+                </div>
+                <div class="Framework_content_block_right public_right">
+                    <div class="top_box_33 Framework_content_bg1">
+                        <h3>1028290</h3>
+                        <p>采集量</p>
+                        <h3>3217567</h3>
+                        <p>共享量</p>
+                        <div class="Framework_content_wrap">
+                            <img src="images/Framework_shuju.png" alt=""> <span>政务邮箱</span>
+                        </div>
+                    </div>
+                    <div class="top_box_33 Framework_content_bg2">
+                        <h3>2348<span>个</span></h3>
+                        <p>账户</p>
+                        <h3>6500<span>MB</span></h3>
+                        <p>容量</p>
+                        <div class="Framework_content_wrap">
+                            <img src="images/Framework_email.png" alt=""> <span>政务邮箱</span>
+                        </div>
+                    </div>
+                    <div class="top_box_33 Framework_content_bg3">
+                        <h3>220<span>万条</span></h3>
+                        <p>已发短信</p>
+                        <!--<h3>99.95<span>%</span></h3>-->
+                        <!--<p>即时回复率</p>-->
+                        <div class="Framework_content_wrap">
+                            <img src="images/Framework_tel.png" alt=""> <span>政务邮箱</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--content_bottom-->
+            <div class="Framework_content_block Framework_content_bottom borderRadius">
+                <div class="Framework_content_block_left Framework_content_block_left1 public_left">
+                    <div class="Framework_content_left_inner">
+                        <p><img src="images/Framework_10.png"  alt=""></p>
+                        <p class="Framework_content_left_text">基础设施</p>
+                    </div>
+                </div>
+                <div class="Framework_content_block_right Framework_content_block_right1 public_right">
+                    <!--<div >-->
+                        <div class="top_box_33">
+                            <div class="img"><img src="images/Framework_zhengwu1.png" alt=""></div>
+                            <div class="wrap wrap_zhengWu borderRadius">
+                                <h3>政务外网</h3>
+                                <div class="inner inner1">
+                                    <div class="box_inner">
+                                        <div class="box_inner_left public_left">
+                                            <p>IP用量</p>
+                                            <p><b>1006</b>个</p>
+                                        </div>
+                                        <div class="box_inner_right public_right">
+                                            <p>已用</p>
+                                            <p><b>973</b>个</p>
+                                        </div>
+                                    </div>
+                                <!--Bar进度条-->
+                                    <div class="cent_Bar">
+                                        <div class="Bar Bar1">
+                                            <div class="Bar_bar Bar_bar1" style="width:96%;">
+                                                <span>96%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="box_inner">
+                                        <div class="box_inner_left public_left">
+                                            <p>宽度独享</p>
+                                            <p><span class="border borderRadius"></span><b>1.5</b>G</p>
+                                        </div>
+                                        <div class="box_inner_right public_right">
+                                            <p>宽带共享</p>
+                                            <p><span class="border borderRadius"></span><b>8</b>G</p>
+                                        </div>
+                                    </div>
+                                    <!--Bar进度条1-->
+                                    <div class="cent_Bar">
+                                        <div class="Bar Bar2">
+                                            <div class="Bar_bar Bar_bar2" style="width:26%;">
+                                                <span>26%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="box_inner">
+                                        <div class="box_inner_left public_left">
+                                            <p>政务外网IP</p>
+                                            <p><b>846</b>个</p>
+                                        </div>
+                                        <div class="box_inner_right public_right">
+                                            <p>已用</p>
+                                            <p><b>627</b>个</p>
+                                        </div>
+                                    </div>
+                                    <!--Bar进度条-->
+                                    <div class="cent_Bar">
+                                        <div class="Bar Bar3">
+                                            <div class="Bar_bar Bar_bar3" style="width:74%;">
+                                                <span>74%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top_box_33">
+                            <div class="img"><img src="images/Framework_jizhong.png" alt=""></div>
+                            <div class="wrap wrap_jiZhong borderRadius">
+                                <h3>集中机房</h3>
+                                <div class="inner inner2">
+                                    <div class="box_inner">
+                                        <div class="box_inner_left public_left">
+                                            <p>机柜</p>
+                                            <p><b>1206</b>个</p>
+                                        </div>
+                                        <div class="box_inner_right public_right">
+                                            <p>已用</p>
+                                            <p><b>813</b>个</p>
+                                        </div>
+                                    </div>
+                                    <!--拼图-->
+                                    <div class="Pie_chart">
+                                        <div class="Pie_chart_circle">
+                                            <div class="Pie_chart_percent Pie_chart_left"></div>
+                                            <div class="Pie_chart_percent Pie_chart_right Pie_chart_wth0"></div>
+                                        </div>
+                                        <div class="num"><span>0</span>%</div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top_box_33 Framework_content_bg6">
+                            <div class="img"><img src="images/Framework_cunchu.png" alt=""></div>
+                            <div class="wrap wrap_cunChu borderRadius">
+                                <h3>存储备份</h3>
+                                <div class="inner inner3">
+                                    <div class="box_inner">
+                                        <div class="box_inner_left public_left">
+                                            <p>存储量</p>
+                                            <p><b>500</b>TB</p>
+                                        </div>
+                                        <div class="box_inner_right public_right">
+                                            <p>备份量</p>
+                                            <p><b>420</b>TB</p>
+                                        </div>
+                                    </div>
+                                    <!--饼图-->
+                                    <div style="background: none">
+                                        <div id="main" style="width:100%;height:300px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!--</div>-->
+                </div>
+                <!--空标签-->
+                <div class="Empty_tag"></div>
+            </div>
+
+        </div>
+<!--content_right-->
+        <div class="top_box_15 borderRadius Framework_box3_15">
+            <div class="Framework_block">
+                <img src="images/Framework_security.png"  alt="">
+                <p>安全体系</p>
+            </div>
+            <div class="Framework_content_right1 borderRadius">
+                <div class="Framework_block_number  borderRadius">
+                    <div class="Framework_block_imgNumber">
+                        <img src="images/Framework_number.png"  alt="">
+                        <p>数字证书认证</p>
+                    </div>
+                </div>
+                <ul class="Framework_list">
+                    <li class="list_block">
+                        <div class="list_block_left public_left">
+                            <img src="images/Framework_7.png"  alt="">
+                        </div>
+                        <div class="list_block_right public_left">
+                            <p><span>3571</span></p>
+                            <p>新增证书</p>
+                        </div>
+                    </li>
+                    <li class="list_block">
+                        <div class="list_block_left public_left">
+                            <img src="images/Framework_8.png"  alt="">
+                        </div>
+                        <div class="list_block_right public_left">
+                            <p><span>1438</span></p>
+                            <p>服务器证书</p>
+                        </div>
+                    </li>
+                    <li class="list_block">
+                        <div class="list_block_left public_left">
+                            <img src="images/Framework_9.png"  alt="">
+                        </div>
+                        <div class="list_block_right public_left">
+                            <p><span>1688</span></p>
+                            <p>RA账户</p>
+                        </div>
+                    </li>
+                    <li class="list_block">
+                        <div class="list_block_left public_left">
+                            <img src="images/Framework_11.png"  alt="">
+                        </div>
+                        <div class="list_block_right public_left">
+                            <p><span>2454</span></p>
+                            <p>更新证书</p>
+                        </div>
+                    </li>
+                    <li class="list_block">
+                        <div class="list_block_left public_left">
+                            <img src="images/Framework_11.png"  alt="">
+                        </div>
+                        <div class="list_block_right public_left">
+                            <p><span>585</span></p>
+                            <p>安全电子签章</p>
+                        </div>
+                    </li>
+                    <li class="list_block">
+                        <div class="list_block_left public_left">
+                            <img src="images/Framework_11.png"  alt="">
+                        </div>
+                        <div class="list_block_right public_left">
+                            <p><span>3767</span></p>
+                            <p>电子证据保全</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+   $(function () {
+       console.log();
+       var inner1=$(".Framework_content_block_right .inner1").height();
+       var inner2=$(".Framework_content_block_right .inner2").height();
+       var inner3=$(".Framework_content_block_right .inner3").height();
+
+       var Framework_box1=$(".content .Framework_box1_15").height();
+       var Framework_box2=$(".content .Framework_box2_69 ").height();
+       var Framework_box3=$(".content .Framework_box3_15 ").height();
+       var jichu=$(".top_box_69 .Framework_content_block_right1 ").height();
+
+       $("div .content  .Framework_content_block_left1").css({height:jichu});
+       if(inner1>inner2&&inner1>inner3){
+           $(".Framework_content_block_right .inner2,.Framework_content_block_right .inner3").css({height:inner1});
+       }else if(inner2>inner1&&inner2>inner3){
+           $(".Framework_content_block_right .inner1,.Framework_content_block_right .inner3").css({height:inner2});
+       }else if(inner3>inner1&&inner3>inner2){
+           $(".Framework_content_block_right .inner1,.Framework_content_block_right .inner2").css({height:inner3});
+       }
+       if(Framework_box1>Framework_box2&&Framework_box1>Framework_box3){
+           $(".content .Framework_box3_15").css({height:Framework_box1});
+           var Empty_tag=(Framework_box1)-(Framework_box2);
+           console.log(Empty_tag);
+           $(".content .Framework_box2_69 .Empty_tag").css({height:Empty_tag});
+       }else if(Framework_box2>Framework_box1&&Framework_box2>Framework_box3){
+           $(".content .Framework_box1_15,.content .Framework_box3_15").css({height:Framework_box2});
+       }else if(Framework_box3>Framework_box1&&Framework_box3>Framework_box2){
+           $(".content .Framework_box1_15").css({height:Framework_box3});
+           var Empty_tag1=Framework_box3-Framework_box2;
+           console.log(Empty_tag1);
+           $(".content .Framework_box2_69 .Empty_tag").css({height:Empty_tag1});
+       }
+
+
+//       圆形进度条
+       var Pie_chart_percent=40;
+       if(Pie_chart_percent>100){
+           Pie_chart_percent=0;
+           $('.Pie_chart_circle').removeClass('Pie_chart_clip_auto');
+           $('.Pie_chart_right').addClass('Pie_chart_wth0');
+       }else if(Pie_chart_percent>50){
+           $('.Pie_chart_circle').addClass('Pie_chart_clip_auto');
+           $('.Pie_chart_right').removeClass('Pie_chart_wth0');
+       }
+       $('.Pie_chart_left').css("-webkit-transform","rotate("+(18/5)*Pie_chart_percent+"deg)");
+       $('.num>span').text(Pie_chart_percent);
+
+
+//echarts饼图
+       var myChart = echarts.init(document.getElementById('main'));
+       var option= {
+           tooltip : {
+               trigger: 'item',
+               formatter: "{a} <br/>{b} : {c}"
+           },
+           legend: {
+               x : 'right',
+               y : '20',
+               data:['存储','备份']
+           },
+           series : [
+               {
+                   name:'',
+                   type:'pie',
+                   radius : [30, 100],
+                   roseType : 'radius',
+                   itemStyle : {
+                       normal : {
+                           label : {
+                               textStyle:{
+                                   fontSize:20
+                               },
+                               position : 'inner'
+                           },
+                           labelLine : {
+                               show : false
+                           }
+                       }
+                   },
+                   data:[
+                       {value:500, name:'存储'},
+                       {value:420, name:'备份'}
+                   ]
+               }
+           ]
+       };
+       // 使用刚指定的配置项和数据显示图表。
+       myChart.setOption(option);
+   });
+
+
+//    词云图
+   var myChart1 = echarts.init(document.getElementById('main1'));
+//
+   // 指定图表的配置项和数据
+   var option1  = {
+
+       tooltip: {},
+       series: [{
+           type: 'wordCloud',
+           gridSize: 0,
+           sizeRange: [14, 20],
+           rotationRange: [0, 0],
+           shape: 'circle',
+           textStyle: {
+               normal: {
+                   color: function() {
+                       return 'rgb(' + [
+                                   Math.round(Math.random() * 160),
+                                   Math.round(Math.random() * 160),
+                                   Math.round(Math.random() * 160)
+                               ].join(',') + ')';
+                   }
+               },
+               emphasis: {
+                   shadowBlur: 10,
+                   shadowColor: '#333'
+               }
+           },
+           data: [{
+               name: '社会治安1',
+               value: 12
+           }]
+       }]
+   };
+   var seriesData=[
+       {name: "一次供水问题",value: "11"},
+       {name: "社会福利及事务",value: "11"},
+       {name: "劳动争议",value: "11"},
+       {name: "低保管理",value: "11"},
+       {name: "有线电视安装及调试维护",value: "11"},
+       {name: "体育活动",value: "11"},
+       {name: "食品安全与卫生",value: "11"},
+       {name: "其他行政事业收费",value: "11"},
+       {name: "林业资源",value: "11"},
+       {name: "社会治安",value: "11"},
+       {name: "有线电视",value: "11"},
+       {name: "房屋与图纸不符",value: "11"},
+       {name: "公路（水路）交通",value: "11"},
+       {name: "公交运输管理",value: "11"},
+       {name: "户籍管理及身份证",value: "11"},
+       {name: "园林绿化1",value: "11"},
+       {name: "园林绿化2",value: "21"},
+       {name: "园林绿化3",value: "121"},
+       {name: "园林绿化4",value: "111"},
+       {name: "园林绿化5",value: "11"},
+       {name: "园林绿化6",value: "11"},
+       {name: "园林绿化7",value: "11"},
+       {name: "园林绿化8",value: "11"},
+       {name: "园林绿化9",value: "11"},
+       {name: "园林绿化10",value: "11"},
+       {name: "园林绿化11",value: "111"},
+       {name: "园林绿化12",value: "11"},
+       {name: "园林绿化13",value: "111"},
+       {name: "园林绿化14",value: "111"},
+       {name: "园林绿化15",value: "311"},
+       {name: "园林绿化16",value: "21"},
+       {name: "园林绿化17",value: "11"},
+       {name: "园林绿化18",value: "11"}
+   ];
+   for(var i=0,len=seriesData.length;i<len;i++){
+       var series_data=[];
+       series_data={
+           name:seriesData[i].name,
+           value:seriesData[i].value
+       };
+       option1.series[0].data.push(series_data);
+   }
+   myChart1.setOption(option1);
+</script>
+</html>

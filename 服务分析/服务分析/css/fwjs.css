@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    /*outline: 1px solid red;*/
+}
+li{
+    list-style: none;
+}
+.borderRadius{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.public_left{
+    float: left!important;
+}
+.public_right{
+    float: right!important;
+}
+.positionRelative{
+    position: relative!important;
+}
+.positionAbsolute{
+    position: absolute!important;
+}
+
+
+/*content*/
+.fw_content1{
+    height: 480px;
+    background:url("../images/ban_ggyy.png")no-repeat;
+}
+.fw_content2{
+    height: 480px;
+    background:url("../images/ban_jcss.png")no-repeat;
+}
+.fw_content{
+    width: 100%;
+    color:#333333;
+}
+.fw_content_inner{
+    width: 1200px;
+    margin: 30px auto 10px
+}
+.fw_content_text {
+    width: 100%;
+    height: 480px;
+    padding-left: 30px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.fw_content_text h3{
+    color: white;
+    font-size: 48px;
+}
+.fw_content_text p{
+    padding: 10px 0;
+    color: white;
+    font-size: 24px;
+}
+.fw_content_innerText h2{
+    color: #333;
+    padding-left: 10px;
+    font-size: 26px;
+    border-left:5px solid #00c1de;
+}
+.fw_content_innerText .text-top{
+   margin-top: 40px;
+}
+.fw_content_innerText p{
+    font-size: 18px;
+    padding: 20px 10px;
+}
+
+.fw_content_innerText .fw_small{
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #434343;
+}
+
+/*资源服务下内容*/
+.fw_content-warps{
+    width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.fw_content-warps .fw_content-warp{
+    position: relative;
+    width: 22%;
+    height: 340px;
+    float: left;
+    margin-right: 2%;
+}
+.fw_content-warp .fw_content_img{
+    text-align: center;
+    margin-top: 15px;
+    position: relative;
+    z-index: 2;
+}
+/**/
+.fw_content_block{
+    position: absolute;
+    top: 70px;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 0 10px rgba(165, 177, 193, 0.6);
+}
+.fw_content_block h3{
+    margin-top: 50px;
+    font-size: 20px;
+    line-height: 40px;
+    color: #00c1de;
+    font-weight: 400;
+}
+.fw_content_block h3,.fw_content_block p{
+    text-align: center;
+}
+.fw_content-warp .fw_content_block p{
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 30px;
+    color: #888888;
+}
+.fw_content_block .fw_content_wp {
+    width: 80%;
+    height: 30px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 30px;
+    margin: 40px auto;
+    border-radius: 10px;
+    border: 1px solid #00c1de;
+    color:#00c1de;
+}
+.fw_content_block .fw_content_wp:hover{
+    cursor: pointer;
+    background: #15CBE6;
+    color: white;
+    box-shadow:0 5px 5px #9DEFFB; /*底边阴影*/
+}
+
+/*基础设施服务介绍*/
+.fw_jcss .fw_content_innerText h2 {
+    margin-bottom: 15px;
+}
+.fw_jcss .fw_content_innerText  p {
+    padding: 0 10px;
+}

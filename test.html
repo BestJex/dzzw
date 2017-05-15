@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <style>
+        ul li{
+            float: left;
+            list-style: none;
+            margin-left: 10px;
+        }
+        .yidong{
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="yue">
+    <div class="yidong">
+        下载
+    </div>
+    <ul class="list">
+        <li class="show"><img class="ysc" src="images/qkfx_1.png"  alt=""></li>
+        <li class="show"><img class="ysc" src="images/qkfx_1.png"  alt=""></li>
+        <li class="show"><img class="ysc" src="images/qkfx_1.png"  alt=""></li>
+        <li><img src="images/qkfx_3.png"  alt=""></li>
+    </ul>
+</div>
+</body>
+<script>
+    var ysc=$('.yue .list li .ysc');
+    var show=$('.yue .list li .show');
+//    ysc.click(function () {
+//      var index =ysc.index(this);
+//        console.log(index);
+//        var aa='images/qkfx_2.png';
+//        ysc.eq(index).attr('src',aa);
+//
+//    });
+
+    show.mouseover(function(){
+        var index =show.index(this);
+        console.log(index);
+//        var aa='images/qkfx_2.png';
+//        ysc.eq(index).attr('src',aa);
+        $(".yidong").css({display:"block"});
+    });
+    show.mouseout(function(){
+        var index =show.index(this);
+        console.log(index);
+//        var aa='images/qkfx_1.png';
+//        ysc.eq(index).attr('src',aa);
+        $(".yidong").css({display:"none"});
+    });
+
+</script>
+</html>

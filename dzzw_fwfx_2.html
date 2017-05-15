@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/dzzw_fwfx.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <script src="js/jquery-1.7.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/echarts-all.js"></script>
+</head>
+<body>
+<div class="nav_header">
+    <p><img src="images/home.png"  alt="">管理控制台><span class="Service ">服务分析</span></p>
+</div>
+<div class="box">
+    <div class="content">
+        <div class="top_box">
+            <a href="dzzw_fwfx_1.html">
+                <div class="tob">
+                    <img src="images/Department.png" alt="">
+                    <p>接入部门</p>
+                    <p class="dzzw_fwfx_color1"><span>62家</span></p>
+                </div>
+            </a>
+        </div>
+        <div class="top_box top_box2">
+            <a href="dzzw_fwfx_2.html">
+                <div class="tob">
+                    <img src="images/system.png" alt="">
+                    <p>接入系统</p>
+                    <p class="Lavender"><span>62套</span></p>
+                </div>
+            </a>
+        </div>
+        <div class="top_box">
+            <a href="dzzw_fwfx_3.html">
+                <div class="tob">
+                    <img src="images/acceptance.png" alt="">
+                    <p>服务受理</p>
+                    <p class="dzzw_fwfx_color3"><span>650次</span></p>
+                </div>
+            </a>
+        </div>
+        <div class="top_box">
+            <a href="dzzw_fwfx_4.html">
+                <div class="tob">
+                    <img src="images/Praise.png" alt="">
+                    <p>好评率</p>
+                    <p class="dzzw_fwfx_color4"><span>99%</span></p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!--charts-->
+    <div class="box">
+        <div class="content">
+            <div class="public_left box_left">
+                <!--折线图-->
+                <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                <div style="background: white">
+                    <div id="main" style="width:100%;height:400px;"></div>
+                </div>
+            </div>
+            <!--表格-->
+            <div class="public_right box_right" style="height:410px;overflow-y: auto">
+                <table id="example" class="display" width="100%"></table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    var option = {
+        title : {
+            text: '系统接入年度增长趋势分析',
+            textStyle:{
+                fontSize: 16,
+                color:'#333333'
+            }
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            show:false,
+            data:['数量', '趋势']
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                data: ["2008","2009","2010","2011","2012","2013","2014","2015","2016","2017"]
+            }
+        ],
+        yAxis: {
+            type : 'value',
+            name : '数量',
+            axisLabel : {
+                formatter: '{value}个'
+            },
+            axisLine:{
+                lineStyle:{
+                    color:'#666666'
+                }
+            }
+        },
+        series : [
+            {
+                name: '数量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20,23,34,34,35]
+            },
+            {
+                name: '趋势',
+                type: 'line',
+                smooth: true,
+                data: [5, 20, 36, 10, 10, 20,23,34,34,35]
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    var dataSet = [
+        [ "市人社局",  "2017-4-5 10:54:54", "12"],
+        [ "市人社局",  "2017-4-5 10:54:54", "12"],
+        [ "市人社局",  "2017-4-5 10:54:54", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "12"],
+        [ "市人社局","2017-4-5 10:54:54", "12"],
+        [ "市人社局",  "2017-4-5 10:54:54", "12"],
+        [ "市人社局",  "2017-4-5 10:54:54", "12"],
+        [ "市人社局",  "2017-4-5 10:54:54", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "12"],
+        [ "市人社局",  "2017-4-5 10:54:54", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "12"],
+        [ "市人社局", "2017-4-5 10:54:54", "12"]
+    ];
+
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "aLengthMenu": [[8, 10, 15, 20], [6, 10, 15, "All"]],
+            data: dataSet,
+            columns: [
+                { title: "单位名称" },
+                { title: "最近服务时间" },
+                { title: "接入系统(套)" }
+            ]
+        } );
+    } );
+</script>
+</body>
+
+</html>

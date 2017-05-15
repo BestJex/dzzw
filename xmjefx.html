@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>项目金额分析</title>
+    <link rel="stylesheet" href="css/dzzw_fwfx.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <script src="js/jquery-1.7.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/echarts-all.js"></script>
+</head>
+<body>
+<div class="nav_header">
+    <p><img src="images/home.png" alt="">管理控制台>项目分析><span class="Service ">项目金额分析</span></p>
+</div>
+<div class="box">
+    <div class="content">
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/xmjefx_1.png" alt="">
+                <p>总预算</p>
+                <p class="backups Light_blue"><span>5000</span><span>W</span></p>
+            </div>
+        </div>
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/xmjefx_2.png" alt="">
+                <p>总投资</p>
+                <p class="storage _blue"><span>5000</span><span>W</span></p>
+            </div>
+        </div>
+        <div class="top_box_33">
+            <div class="tob">
+                <img src="images/xmjefx_3.png" alt="">
+                <p>结余</p>
+                <p class="backups Data_exchange_green"><span>500</span><span>W</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box">
+    <div class="content">
+        <!--折线图-->
+        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+        <div style="background: white">
+            <div id="main" style="width:100%;height:300px;"></div>
+        </div>
+    </div>
+</div>
+<!--表格-->
+<div class="box">
+    <div class="content content_table" style="height: 485px;">
+        <table id="example" class="display" width="100%"></table>
+    </div>
+</div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    var option = {
+        title : {
+            text: '项目金额分析',
+            textStyle:{
+                fontSize: 16,
+                color:'#666'
+            }
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            x : '86%',
+            y : 'bottom',
+            data:['预算金额','实际花费']
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+//                boundaryGap : false,
+                data: ["2008","2009","2010","2011","2012","2013","2014","2015","2016","2017"]
+            }
+        ],
+        yAxis: {
+            type : 'value',
+            name : '单位:万元',
+            axisLine:{
+                lineStyle:{
+                    color:'#666666'
+                }
+            },
+            axisLabel : {
+                formatter: '{value}'
+            }
+        },
+        series : [
+            {
+                name: '预算金额',
+                type: 'line',
+                data: [15, 120, 136, 110, 110, 210,123,134,134,135],
+                itemStyle:{
+                    normal:{
+                        color:'#a79bf5'
+                    }
+                }
+
+
+            },
+            {
+                name: '实际花费',
+                type: 'line',
+                data: [5, 20, 36, 10, 10, 20,23,34,34,35],
+                itemStyle:{
+                    normal:{
+                        color:'#1eb5ae'
+                    }
+                }
+
+
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    //    表格
+    var dataSet = [
+        [ "市城管项目", "2017-4-5", "2017-4-7", "2", "单位1"],
+        [ "社保局项目", "2017-4-5", "2017-4-7", "2", "单位1"],
+        [ "市大项目", "2017-4-5", "2017-4-7", "2", "单位1"],
+        [ "市法院项目", "2017-4-5", "2017-4-7", "2", "单位1"],
+        [ "市政协项目", "2017-4-5", "2017-4-7", "2", "单位1"],
+        [ "市公安项目", "2017-4-5", "2017-4-7", "2", "单位1"],
+        [ "市政协项目", "2017-4-5", "2017-4-7", "2", "单位1"],
+        [ "市公安项目", "2017-4-5", "2017-4-7", "2", "单位1"],
+        [ "市政协项目", "2017-4-5", "2017-4-7", "2", "单位1"],
+        [ "市公安项目", "2017-4-5", "2017-4-7", "2", "单位1"]
+    ];
+
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "aLengthMenu": [[8, 10, 15, 20], [5, 10, 15, "All"]],
+            data: dataSet,
+            columns: [
+                { title: "合同名称" },
+                { title: "开始时间"},
+                { title: "结束时间"},
+                { title: "合同金额(万元)"},
+                { title: "乙方单位"}
+            ]
+        } );
+    } );
+</script>
+</html>

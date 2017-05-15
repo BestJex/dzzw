@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>政务短信运行情况分析</title>
+    <link rel="stylesheet" href="css/qkfx.css">
+    <script src="js/jquery-1.7.min.js"></script>
+</head>
+<body>
+<!--下载提示层-->
+<div class="qkfx_shade">
+    <span class="qkfx_shade_img"><img src="images/qkfx_1.png" alt=""></span>
+    <span>2007</span>年<span>3</span>月月报下载完成!
+</div>
+<div class="nav_header">
+    <p><img src="images/home.png" alt="">管理控制台><span class="Service ">政务短信运行情况分析</span></p>
+</div>
+
+<div class="qkfxBox">
+    <div class="qkfxBox_top">
+        <h3 class="text">月报</h3>
+        <div class="qkfxBox_top_content">
+            <div class="yue">
+                <div class="qkfxborder"></div>
+                <div style="position: absolute;top: 0;width: 100%;">
+                    <ul class="list_left">
+                        <li class="qkfx_left" id="qkfx_left"><img src="images/qkfx_left.png" alt=""></li>
+                        <li class="qkfx_pent" id="qkfx_pent">2016</li>
+                    </ul>
+                    <ul class="list">
+                        <li class="hover"><img class="ysc" src="images/qkfx_1.png"  alt=""></li>
+                        <li class="hover"><img class="ysc" src="images/qkfx_1.png"  alt=""></li>
+                        <li class="hover"><img class="ysc" src="images/qkfx_1.png"  alt=""></li>
+                        <li><img src="images/qkfx_wsc.png"  alt=""></li>
+                        <li><img src="images/qkfx_dsc.png"  alt=""></li>
+                        <li><img src="images/qkfx_5.png"  alt=""></li>
+                        <li><img src="images/qkfx_5.png"  alt=""></li>
+                        <li><img src="images/qkfx_5.png"  alt=""></li>
+                        <li><img src="images/qkfx_5.png"  alt=""></li>
+                        <li><img src="images/qkfx_5.png"  alt=""></li>
+                        <li><img src="images/qkfx_5.png"  alt=""></li>
+                        <li><img src="images/qkfx_5.png"  alt=""></li>
+                    </ul>
+                    <ul class="list_right">
+                        <li class="qkfx_left" id="qkfx_right"><img src="images/qkfx_right1.png" alt=""></li>
+                        <li class="qkfx_next" id="qkfx_next">2018</li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="list1">
+                <li>1月</li>
+                <li>2月</li>
+                <li>3月</li>
+                <li class="list1_red">4月</li>
+                <li class="list1_yellow">5月</li>
+                <li>6月</li>
+                <li>7月</li>
+                <li>8月</li>
+                <li>9月</li>
+                <li>10月</li>
+                <li>11月</li>
+                <li>12月</li>
+            </ul>
+            <!--圆点-->
+            <div class="ydong_border">
+                <div class="ydong_box">
+                    <div class="ydong_bg">
+                        <div class="yue_borderRadius"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--center-->
+    <div class="qkfxBox_content">
+        <div class="qkfxBox-49 public_left">
+            <div class="qkfxBox-49-left public_left">
+                <div class="qkfxBox-inner_left">
+                    <img src="images/qkfx_byxz.png"  alt="">
+                    <p>本月新增</p>
+                </div>
+            </div>
+            <div class="qkfxBox-49-right public_right">
+                <ul class="qkfxBox_list qkfxBox_rightList">
+                    <li class="qkfxBox_li1">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_fszl.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>3949</b><span>次</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner1">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>发送指令</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li2">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_fsdx.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>90.25万</b><span>条</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner2">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>发送短信</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li3">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_newAdd.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>1</b><span>家</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner3">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>新增单位</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li4">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_add1.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>3</b><span>套</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner4">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>新增系统</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--右侧-->
+        <div class="qkfxBox-49 public_right">
+            <div class="qkfxBox-49-left public_left">
+                <div class="qkfxBox-inner_left">
+                    <img src="images/qkfx_fwsl.png"  alt="">
+                    <p>服务受理</p>
+                </div>
+            </div>
+            <div class="qkfxBox-49-right public_right">
+                <ul class="qkfxBox_list qkfxBox_rightList">
+                    <li class="qkfxBox_li1">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_blywkt.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>4</b><span>次</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner1">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>办理业务开通</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li2">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_jh.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>15</b><span>次</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner2">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>办理业务更改</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li3">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_ywzz.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>5</b><span>个</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner3">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>业务终止</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--bottom-->
+    <div class="qkfxBox_content qkfxBox_bottom">
+        <div class="qkfxBox-49 public_left">
+            <div class="qkfxBox-49-left public_left">
+                <div class="qkfxBox-inner_left">
+                    <img src="images/qkfx_hztj.png"  alt="">
+                    <p>汇总统计</p>
+                </div>
+            </div>
+            <div class="qkfxBox-49-right public_right">
+                <ul class="qkfxBox_list qkfxBox_rightList">
+                    <li class="qkfxBox_li1">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_jrdw.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>40</b><span>家</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner1">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>接入单位</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li2">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_jrxt.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>62</b><span>套</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner2">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>接入系统</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li3">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_fszl.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>6.5万</b><span>次</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner3">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>发送指令</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li4">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_fsdx.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>1203万</b><span>条</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner4">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>发送短信</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--右侧-->
+        <div class="qkfxBox-49 public_right">
+            <div class="qkfxBox-49-left public_left">
+                <div class="qkfxBox-inner_left">
+                    <img src="images/qkfx_ywtj.png"  alt="">
+                    <p>运维统计</p>
+                </div>
+            </div>
+            <div class="qkfxBox-49-right public_right">
+                <ul class="qkfxBox_list">
+                    <li class="qkfxBox_li1">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_ywzx.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>11</b><span>起</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner1">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>业务咨询</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li2">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_gzcl.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>28</b><span>起</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner2">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>故障处理</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li3">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_jszc.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>12</b><span>次</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner3">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>技术支持</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li4">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_xj.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>30</b><span>次</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner4">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>巡检</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="qkfxBox_li5">
+                        <div class="qkfxBox_liInner">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <img src="images/qkfx_yl.png" alt="">
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <b>3</b><span>次</span>
+                            </div>
+                        </div>
+                        <div class="qkfxBox_liInner qkfxBox_liInner5">
+                            <div class="qkfxBox_liInner_left public_left">
+                                <b>演练</b><span></span>
+                            </div>
+                            <div class="qkfxBox_liInner_right public_right">
+                                <img src="images/qkfx_6.png"  alt="">
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!--下载-->
+<script src="js/qkfx.js"></script>
+</html>

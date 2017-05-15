@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.7.min.js"></script>
+    <script src="js/echarts-all.js"></script>
+    <script src="js/dpsjz.js"></script>
+</head>
+<body>
+<div style="background: white">
+    <div id="main" style="width:100%;height:300px;"></div>
+</div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    var option = {
+        timeline:{
+            data:[
+                '2002','2003','2004','2005','2006',
+                '2007','2008','2009','2010','2011'
+            ],
+            label : {
+                formatter : function(s) {
+                    return s.slice(0, 4);
+                }
+            },
+            autoPlay : true,
+            playInterval : 1000,
+            y:260
+        },
+        options:[
+            {
+                tooltip : {'trigger':'axis'},
+                legend : {
+                    x:'right',
+                    'data':['单位','容量'],
+                    'selected':{
+                        '单位':true,
+                        '容量':true
+                    }
+                },
+                calculable : true,
+                grid : {'y':50},
+                xAxis : [{
+                    'type':'category',
+                    'axisLabel':{'interval':0},
+                    'data':['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                }],
+                yAxis : [
+                    {
+                        'type':'value',
+                        'name':'单位 : 个'
+                    }
+                    ,
+                    {
+                        'type':'value',
+                        'name':'单位 : MB'
+                    }
+                ],
+                series : [
+
+                    {
+                        'name':'单位',
+                        'type':'bar',
+                        'data': dataMap.dataGDP['2002'],
+                        itemStyle: {
+                            normal: {
+                                color:'#fe6896'
+                            }
+                        }
+                    },
+                    {
+                        'name':'容量','yAxisIndex':1,'type':'line',
+                        'data': dataMap.dataPI['2002'],
+                        itemStyle: {
+                            normal: {
+                                color:'#00c1de'
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2003']},
+                    {'data': dataMap.dataPI['2003']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2004']},
+                    {'data': dataMap.dataPI['2004']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2005']},
+                    {'data': dataMap.dataPI['2005']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2006']},
+                    {'data': dataMap.dataPI['2006']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2007']},
+                    {'data': dataMap.dataPI['2007']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2008']},
+                    {'data': dataMap.dataPI['2008']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2009']},
+                    {'data': dataMap.dataPI['2009']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2010']},
+                    {'data': dataMap.dataPI['2010']}
+                ]
+            },
+            {
+                series : [
+                    {'data': dataMap.dataGDP['2011']},
+                    {'data': dataMap.dataPI['2011']}
+                ]
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</html>
