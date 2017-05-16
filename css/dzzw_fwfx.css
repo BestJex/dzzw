@@ -10,7 +10,7 @@ html,body,div,p{
     padding: 0;
 }
 body{
-    font-family: '微软雅黑';
+    font-family: "Noto Sans", "Microsoft Yahei", SimSun;
 }
 .tob .green,.top_box_33 .Light_blue{
     color: #1eb5ae;
@@ -79,10 +79,17 @@ body{
 }
 .content{
     width: 98%;
-    margin: 10px auto;
+    padding: 15px 10px 7px;
+    margin: 0 auto;
     /*border:1px solid #cccccc;*/
     overflow: hidden;
 
+}
+.box .content_region{
+    width: 98%;
+    padding: 7px 10px 7px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 .tob p{
     color: #666666;
@@ -98,6 +105,8 @@ body{
     margin-left: 1%;
     box-sizing: border-box;
     background: white;
+    box-shadow: 0 0 10px rgba(165, 177, 193, 0.6);
+    box-shadow: 0 0 10px rgb(208, 77, 77);
 
 }
 .content .top_box_33{
@@ -106,17 +115,26 @@ body{
     margin-left: 1%;
     box-sizing: border-box;
     background: white;
+    box-shadow: 0 0 10px rgba(165, 177, 193, 0.6);
+    box-shadow: 0 0 10px rgb(208, 77, 77);
     overflow: hidden;
 }
 .content_table{
+    overflow-y: auto;
+    margin: 10px auto;
+    padding:0;
     background: white;
+    position: relative;
 }
+
 .content .top_box_49{
     width: 49.5%;
     /*height: 200px;*/
     float: left;
     margin-left: 1%;
     box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(165, 177, 193, 0.6);
+    box-shadow: 0 0 10px rgb(208, 77, 77);
     background: white;
     overflow: hidden;
 }
@@ -128,6 +146,7 @@ body{
     box-sizing: border-box;
     background: white;
     box-shadow: 0 0 10px rgba(165, 177, 193, 0.6);
+    box-shadow: 0 0 10px rgb(208, 77, 77);
     overflow: hidden;
     /*outline: 1px solid red;*/
 
@@ -186,7 +205,7 @@ body{
 }
 
 .tob .storage,.tob .backups{
-    font-size: 28px;
+    /*font-size: 28px;*/
 }
 
 .top_box .dzzw_fwfx_color1{
@@ -269,6 +288,7 @@ body{
 .Framework .content .top_box_33{
     overflow: visible;
     margin-bottom: 20px;
+    box-shadow: none;
 }
 .Framework1 .content{
     overflow: visible;
@@ -390,9 +410,12 @@ div .top_box_15 .Framework_block{
 .top_box_15 .Framework_list li{
     margin-top: 30px;
     /*height: 85px;*/
-    box-shadow: 2px 4px 4px #ccfbf4;
+    box-shadow: 2px 4px 4px #e8fdfa;
     border-radius: 10px;
     overflow: hidden;
+}
+.top_box_15 .Framework_content_right1 .Framework_list li{
+    box-shadow: 2px 4px 4px #f7fbff;
 }
 .top_box_15  .Framework_list_left li{
     margin-top: 50px;
@@ -419,6 +442,9 @@ div .top_box_15 .Framework_block{
     font-size: 30px;
     vertical-align: middle;
     color: #0fe3d9;
+}
+.Framework_content_right1 .Framework_list .list_block_right   span{
+    color: #0e79df;
 }
 .Framework_list .list_block .text_small{
     font-size: 20px;
@@ -852,11 +878,11 @@ div .Framework_content_block .Framework_content_bg1 h3 {
 .Framework_content_right1{
     width: 96%;
     margin: 15px auto;
-    border: 1px solid #15e7de;
+    border: 1px solid #46acf4;
 }
 .Framework_content_right1 .Framework_block_number{
     height: 85px;
-    background: #cafefb;
+    background: #75c0f5;
 }
 .Framework_content_right .Framework_block_imgNumber{
     width: 115px;
@@ -869,7 +895,7 @@ div .Framework_block_number .Framework_block_imgNumber {
 }
 div .Framework_block_number .Framework_block_imgNumber p{
     font-size: 18px;
-    color: #666666;
+    color: #0e79df;
 }
 div .Framework_block_number .Framework_block_imgNumber img{
     padding-top: 5px;
@@ -1092,8 +1118,6 @@ li{
 }
 /*电子政务外网*/
 .top_box_33 .government_extranet_top {
-    height: 37px;
-    line-height: 37px;
     font-size: 24px;
     text-align: center;
 }
@@ -1107,3 +1131,28 @@ div#main1 {
     height: 150px;
 }
 /*CA数字认证*/
+
+.box_show{
+    box-shadow: 0 0 10px rgba(165, 177, 193, 0.6);
+    box-shadow: 0 0 10px rgb(208, 77, 77);
+}
+.public_Tables{
+    margin: 0 0.15% 0 0;
+    padding:0;
+    background: white;
+}
+
+    /*架构图*/
+.content .Framework_content_block .top_box_33{
+    box-shadow:none;
+}
+/*表格翻页*/
+div#example_wrapper {
+    height: 100%;
+}
+div#example_paginate {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -90px;
+}

@@ -54,20 +54,20 @@
     </div>
     <!--charts-->
     <div class="box">
-        <div class="content">
+        <div class="content content_region">
             <div class="public_left box_left">
                 <!--折线图-->
                 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                <div style="background: white">
+                <div style="background: white" class="box_show">
                     <div id="main" style="width:100%;height:300px;"></div>
                 </div>
                 <!--柱状图-->
-                <div style="background: white;margin-top: 10px;">
+                <div style="background: white;margin-top: 10px;" class="box_show">
                     <div id="main1" style="width:100%;height:300px;"></div>
                 </div>
             </div>
             <!--表格-->
-            <div class="public_right box_right" style="height:620px;overflow-y: auto;">
+            <div class="public_right box_right box_show" style="height:620px;overflow-y: auto;">
                 <table id="example" class="display" width="100%" ></table>
             </div>
         </div>

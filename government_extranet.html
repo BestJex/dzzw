@@ -9,6 +9,9 @@
     <script src="js/jquery.dataTables.js"></script>
     <script src="js/echarts.js"></script>
     <script src="js/echarts-liquidfill.js"></script>
+    <style>
+
+    </style>
 </head>
 <body>
 <div class="nav_header">
@@ -48,26 +51,26 @@
     </div>
 </div>
 <div class="box">
-    <div class="content">
-        <div class="top_box_49">
+    <div class="content content_region">
+        <div class="top_box_49" style="width:32.6%">
             <!--折线图-->
             <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-            <div style="background: white">
+            <div style="background: white" class="box_show">
                 <div id="main" style="width:100%;height: 300px;margin-top:-10px;"></div>
             </div>
         </div>
-        <div class="top_box_49">
+        <div class="top_box_49" style="width:66.4%">
             <!--折线图-->
             <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
             <div style="background: white">
-                <div id="main1" style="width:100%;height:300px;"></div>
+                <div id="main1" style="width:100%;height:295px;"></div>
             </div>
         </div>
     </div>
 </div>
 <!--表格-->
 <div class="box">
-    <div class="content content_table" style="height: 300px;overflow-y: auto">
+    <div class="content content_table box_show" style="height: 600px;">
         <table id="example" class="display" width="100%"></table>
     </div>
 </div>
@@ -187,7 +190,7 @@
 
     $(document).ready(function() {
         $('#example').DataTable( {
-            "aLengthMenu": [[50, 10, 15, 20], [50, 10, 15, "All"]],
+            "aLengthMenu": [[9, 10, 15, 20], [50, 10, 15, "All"]],
             data: dataSet,
             columns: [
                 { title: "单位名称" },
@@ -196,37 +199,7 @@
                 { title: "接入系统(套)"}
             ]
         } );
-        function MergeCell(tableId, startRow, endRow, col) {
-            var tb = document.getElementById(tableId);
-            if (col >= tb.rows[0].cells.length) {
-                return;
-            }
-            //当检查第0列时检查所有行
-            if (col == 0) {
-                endRow = tb.rows.length - 1;
-            }
-            for (var i = startRow; i < endRow; i++) {
-                //subCol:已经合并了多少列
-                var subCol = tb.rows[0].cells.length - tb.rows[startRow].cells.length;
-                //程序是自左向右合并，所以下一行一直取第0列
-                if (tb.rows[startRow].cells[col - subCol].innerHTML == tb.rows[i + 1].cells[0].innerHTML) {
-                    //如果相同则删除下一行的第0列单元格
-                    tb.rows[i + 1].removeChild(tb.rows[i + 1].cells[0]);
-                    //更新rowSpan属性
-                    tb.rows[startRow].cells[col - subCol].rowSpan = (tb.rows[startRow].cells[col - subCol].rowSpan | 0) + 1;
-                    //当循环到终止行前一行并且起始行和终止行不相同时递归(因为上面的代码已经检查了i+1行，所以此处只到endRow-1)
-                    if (i == endRow - 1 && startRow != endRow) {
-                        MergeCell(tableId, startRow, endRow, col + 1);
-                    }
-                } else {
-                    //起始行，终止行不变，检查下一列
-                    MergeCell(tableId, startRow, i, col + 1);
-                    //增加起始行
-                    startRow = i + 1;
-                }
-            }
-        }
-        MergeCell('example', 0, 0, 0);
+
     } );
 </script>
 </html>

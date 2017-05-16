@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/table.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<div class="table_box">
+    <!--运单号-->
+    <ul>
+        <li>2017-05-13</li>
+        <li>订单号:<span>20170500689</span></li>
+        <li>订单类型:<span>开通工单</span></li>
+        <li class="bj">编辑</li>
+    </ul>
+    <!--表格-->
+    <table >
+        <tr>
+            <td><img src="table_jzjftg1.png" alt=""></td>
+            <td>
+                <h3>集中机房托管服务</h3>
+                <p>设备托管服务</p>
+            </td>
+            <td>
+                <img src="table_yzf.png" alt="">
+                <span class="yzf">已交互</span>
+            </td>
+            <td>
+                <p>再次申请</p>
+                <p>工单详情</p>
+                <p>已评价</p>
+            </td>
+            <td>
+                <span class="lcck">流程查看</span>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="table_jzjftg1.png" alt=""></td>
+            <td>
+                <h3>集中机房托管服务</h3>
+                <p>设备托管服务</p>
+            </td>
+            <td>
+                <img src="table_yzf.png" alt="">
+                <span class="yzf">已交互</span>
+            </td>
+            <td>
+                <p>再次申请</p>
+                <p>工单详情</p>
+                <p>已评价</p>
+            </td>
+            <td>
+                <span class="lcck">流程查看</span>
+            </td>
+        </tr>
+    </table>
+    <!--运单号-->
+    <ul>
+        <li>2017-05-13</li>
+        <li>订单号:<span>20170500689</span></li>
+        <li>订单类型:<span>开通工单</span></li>
+        <li class="bj">编辑</li>
+    </ul>
+    <!--表格-->
+    <table >
+        <tr>
+            <td><img src="table_jzjftg1.png" alt=""></td>
+            <td>
+                <h3>集中机房托管服务</h3>
+                <p>设备托管服务</p>
+            </td>
+            <td>
+                <img src="table_yzf.png" alt="">
+                <span class="yzf">已交互</span>
+            </td>
+            <td>
+                <p>再次申请</p>
+                <p>工单详情</p>
+                <p>已评价</p>
+            </td>
+            <td>
+                <span class="lcck">流程查看</span>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="table_jzjftg1.png" alt=""></td>
+            <td>
+                <h3>数字证书认证服务</h3>
+                <p>RA账户管理服务</p>
+            </td>
+            <td>
+                <img src="table_ybc.png" alt="">
+                <span class="yzf">已保存</span>
+            </td>
+            <td>
+                <p>再次申请</p>
+                <p>工单详情</p>
+                <p class="pj">评价</p>
+            </td>
+            <td>
+                <span class="lcck">流程查看</span>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+<script>
+    function mergeTable(tabObj,colIndex){  //合并列
+        if(tabObj != null){
+            var i,j;
+            var intSpan;
+            var strTemp;
+            for(i = 0; i < tabObj.rows.length; i++){
+                intSpan = 1;
+                strTemp = tabObj.rows[i].cells[colIndex].innerText;
+                for(j = i + 1; j < tabObj.rows.length; j++){
+                    if(strTemp == tabObj.rows[j].cells[colIndex].innerText){
+                        intSpan++;
+                        tabObj.rows[i].cells[colIndex].rowSpan = intSpan;
+                        tabObj.rows[j].cells[colIndex].style.display = "none";
+                    }else{
+                        break;
+                    }
+                }
+                i = j - 1;
+            }
+        }
+    }
+
+
+    $(".table_box table").each(function(){  //循环class(table_box)下的table个数
+        var tdLength = $(this).find('tr:first-child td').length-1;  //获取table下第一个tr的下的td个数
+        mergeTable(this,tdLength);
+    });
+
+</script>
+</html>

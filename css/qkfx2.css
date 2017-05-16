@@ -21,6 +21,7 @@
 }
 body{
     background: #e6e9ed;
+    font-family: "Noto Sans", "Microsoft Yahei", SimSun;
 }.nav_header{
      height: 50px;
      line-height: 50px;
@@ -45,11 +46,10 @@ body{
     width: 100%;
     height: 235px;
     background: white;
-    /*box-shadow: 0 0 10px rgb(241, 241, 241);*/
-    box-shadow: 0 0 10px rgb(208, 77, 77);
+    box-shadow: 0 0 10px rgb(241, 241, 241);
 }
 .qkfxBox_top .text{
-   padding: 20px 20px 0 20px;
+    padding: 20px;
     font-size: 16px;
     color: #333;
 
@@ -69,9 +69,6 @@ body{
     float: left;
     /*height: 65px;*/
     overflow: hidden;
-}
-.list_left  li:hover,.list_right li:hover{
-    cursor: pointer;
 }
 .qkfxBox_top .yue ul li{
     list-style: none;
@@ -97,7 +94,7 @@ body{
 }
 .qkfxBox_top .yue .list_left,.qkfxBox_top .yue .list_right{
     width: 8%;
-    padding-top: 49px;
+    padding-top: 48px;
 }
 .qkfxBox_top .yue .list{
     width: 84%;
@@ -136,8 +133,8 @@ body{
 }
 
 .qkfx_pent {
-	width: 43px;
-    line-height: 60px;
+    width: 53px;
+    line-height: 65px;
     background: url(../images/qkfx_4.png)no-repeat;
     background-size: 90%;
     background-position: 4px 14px;
@@ -145,24 +142,18 @@ body{
     text-align: center;
     font-size: 12px;
 }
-@media only screen and (min-width:1360px)and (max-width: 1590px){
-     .list_left .qkfx_pent{
-         width: 43px;
-    }
-}
 @media only screen and (min-width: 1600px)and (max-width: 1920px){
     .list_left .qkfx_pent {
-     width: 53px;
         margin-left: 20%;
     }
 }
 .qkfx_next {
-    width: 43px;
+    width: 53px;
     background: url(../images/qkfx_right_4.png)no-repeat;
     background-size: 88%;
     background-position: 4px 12px;
     color: #b7b7b7;
-    line-height: 60px;
+    line-height: 65px;
     text-align: center;
     font-size: 12px;
 }
@@ -194,14 +185,10 @@ ul.list1.list_borderRadius {
 .qkfxBox_bottom{
     padding-bottom: 10px;
 }
-
 .qkfxBox-49{
     width: 49.5%;
     height: 310px;
-    margin-bottom: 10px;
     background: white;
-    /*box-shadow: 0 0 10px rgb(241, 241, 241);*/
-    box-shadow: 0 0 10px rgb(208, 77, 77);
 }
 .qkfxBox-49-left{
     width: 30%;
@@ -268,29 +255,25 @@ li{
 .qkfxBox_liInner_left{
     padding-left: 5%;
 }
-.qkfxBox_liInner .qkfxBox_liInner_left b{
+.qkfxBox_liInner1 .qkfxBox_liInner_left b{
     font-size: 18px;
 }
-/*.qkfxBox_liInner  .qkfxBox_liInner_left  b{*/
-    /*font-size: 18px;*/
-/*}*/
 .qkfxBox_liInner1 .qkfxBox_liInner_left span{
     font-size: 25px;
 }
 .qkfxBox_liInner .qkfxBox_liInner_left img{
     vertical-align: middle;
-    /*margin-top: -5px; */
-    margin-top: 10px;
+    margin-top: -5px;
 }
 .qkfxBox_liInner .qkfxBox_liInner_right img{
     vertical-align: middle;
-        margin-top: 10px;
+    margin-top: -1px;
 }
 .qkfxBox_liInner_right{
     padding-right: 5%;
 }
 .qkfxBox_liInner .qkfxBox_liInner_right b{
-    font-size: 18px;
+    font-size: 25px;
 }
 .qkfxBox_liInner .qkfxBox_liInner_right span{
     font-size: 18px;
@@ -358,8 +341,7 @@ div.qkfxBox_liInner6{
     padding-bottom: 10px;
 }
 .qkfxBox-33{
-    /*box-shadow: 0 0 10px rgb(241, 241, 241);*/
-    box-shadow: 0 0 10px rgb(208, 77, 77);
+    box-shadow: 0 0 10px rgb(241, 241, 241);
     width: 32.33333%;
     background: white;
 }
@@ -500,15 +482,10 @@ background-size: 100% 100%;
 .ydong_border{
     width: 84%;
     margin-left: 8%;
-    margin-top: -15px;
+    margin-top: -8px;
     position: relative;
 }
 
-@media only screen and (min-width: 1600px)and (max-width: 1920px){
-    .ydong_border{
-        margin-top: -8px;
-    }
-}
 .yue .ydong{
     width: 100%;
     position: absolute;

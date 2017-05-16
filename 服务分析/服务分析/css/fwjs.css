@@ -36,6 +36,7 @@ li{
 }
 .fw_content{
     width: 100%;
+    margin-top: -30px;
     color:#333333;
 }
 .fw_content_inner{
