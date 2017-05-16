@@ -200,3 +200,13 @@ div#jslxm_wraps_InnerBlue {
     width: 96%;
     margin: 0 auto;
 }
+/*表格翻页*/
+div#example_wrapper {
+    height: 100%;
+}
+div#example_paginate {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -90px;
+}
