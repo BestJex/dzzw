@@ -48,7 +48,7 @@ body{
     height: 325px;
     background: #c7f6f6;
     box-shadow: 0 0 10px rgba(165, 177, 193, 0.6);
-    box-shadow: 0 0 10px rgb(208, 77, 77);
+    /*box-shadow: 0 0 10px rgb(208, 77, 77);*/
 }
 .jslxmContent .jslxmImg {
     top: -10px;
@@ -194,7 +194,7 @@ div#jslxm_wraps_InnerBlue {
 .jslxmContent1 {
     margin-top: 10px;
     box-shadow: 0 0 10px rgba(165, 177, 193, 0.6);
-    box-shadow: 0 0 10px rgb(208, 77, 77);
+    /*box-shadow: 0 0 10px rgb(208, 77, 77);*/
 }
 .jslxmContent1 .jslxmContent_table{
     width: 96%;
