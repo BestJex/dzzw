@@ -1155,7 +1155,7 @@ div#example_wrapper {
 }
 div#example_paginate {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     left: 50%;
     margin-left: -90px;
 }
