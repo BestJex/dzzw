@@ -49,10 +49,8 @@
 </div>
 <!--表格-->
 <div class="box">
-    <div class="content content_table" style="height: 485px;">
-        <div class="box_show public_Tables">
-            <table id="example" class="display" width="100%"></table>
-        </div>
+    <div class="content content_table box_show" style="height: 330px;">
+        <table id="example" class="display" width="100%"></table>
     </div>
 </div>
 </body>
@@ -141,7 +139,7 @@
 
     $(document).ready(function() {
         $('#example').DataTable( {
-            "aLengthMenu": [[8, 10, 15, 20], [5, 10, 15, "All"]],
+            "aLengthMenu": [[5, 10, 15, 20], [5, 10, 15, "All"]],
             data: dataSet,
             columns: [
                 { title: "合同名称" },
