@@ -8,6 +8,30 @@
     <script src="js/jquery-1.7.min.js"></script>
     <script src="js/jquery.dataTables.js"></script>
     <script src="js/echarts-all.js"></script>
+    <style>
+        #example .sorting_1 {
+            width: 150px;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            line-height: 52px;
+            word-break:keep-all;
+            display: inline-block;
+            /*white-space: nowrap;*/
+            /*overflow: hidden;*/
+            /*text-overflow: ellipsis; !* for IE *!*/
+            /*-moz-text-overflow: ellipsis; !* for Firefox,mozilla *!*/
+
+        }
+
+        #example .sorting_1:hover{
+            width:320px;
+            cursor: pointer;
+            /*overflow: visible;*/
+            /*white-space: normal;*/
+            /*word-wrap: break-word;*/
+        }
+    </style>
 </head>
 <body>
 <div class="nav_header">
@@ -20,7 +44,7 @@
                 <div class="tob">
                     <img src="images/Department.png" alt="">
                     <p>接入部门</p>
-                    <p class="dzzw_fwfx_color1"><span>62家</span></p>
+                    <p class="dzzw_fwfx_color1"><span>62</span><span  class="text_small">家</span></p>
                 </div>
             </a>
         </div>
@@ -29,7 +53,7 @@
                 <div class="tob">
                     <img src="images/system.png" alt="">
                     <p>接入系统</p>
-                    <p class="Lavender"><span>62套</span></p>
+                    <p class="Lavender"><span>62</span><span class="text_small">套</span></p>
                 </div>
             </a>
         </div>
@@ -38,7 +62,7 @@
                 <div class="tob">
                     <img src="images/acceptance.png" alt="">
                     <p>服务受理</p>
-                    <p class="dzzw_fwfx_color3"><span>650次</span></p>
+                    <p class="dzzw_fwfx_color3"><span>650</span><span class="text_small">次</span></p>
                 </div>
             </a>
         </div>
@@ -73,6 +97,7 @@
         </div>
     </div>
 </div>
+<button id="table_id_example_button">获取选中的行</button>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('main'));
     var myChart1 = echarts.init(document.getElementById('main1'));
@@ -150,6 +175,7 @@
                 data: ["电子政务网","电子政务网","电子政务网","电子政务网","电子政务网","电子政务网","电子政务网","电子政务网"]
             }
         ],
+
         yAxis: {
             type : 'value',
             name : '单位数量',
@@ -177,34 +203,64 @@
 
 //    表格
     var dataSet = [
+        [ "市人社局市人社局市人社局市人社局市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
         [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
         [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
         [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
         [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
-        [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
-        [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
-        [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
-        [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
-        [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
-        [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
-        [ "市人社局", "2017-4-6", "2017-4-5 10:54:54", "12"],
+//        [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
+//        [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
+//        [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
+//        [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
+//        [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"],
+//        [ "市人社局", "2017-4-6", "2017-4-5 10:54:54", "12"],
         [ "市人社局", "2017-4-5", "2017-4-5 10:54:54", "12"]
     ];
 
     $(document).ready(function() {
-        $('#example').DataTable( {
+        var table = $('#example').DataTable( {
             "aLengthMenu": [[10, 10, 15, 20], [ "All"]],
             data: dataSet,
             columns: [
-                { title: "单位名称" },
+                { title: "单位名称"
+//                    ,
+//                    render: function (data) {
+//                        var s;
+//                        if(data.length<5){
+//                            console.log(data);
+//                            return data;
+//                        }else if(data.length>5){
+//                            s=data.substring(0,5)+"...";
+//                            return "<div title='"+data+"'>"+s+"</div>";
+//
+//                        }
+//                    }
+
+                },
                 { title: "接入日期" },
-                { title: "最近服务时间" },
+                { title: "最近服务时间"},
                 { title: "总服务次数" }
             ]
+
         } );
+
+
+
+        $('#example tr').eq(2).find("td").each(function () {
+            console.log($(this).text());//弹出值
+        });
+        $('#example tr').attr("title", "keleyi.com");
+        $('#example .sorting_1').hover(function(){
+            $("#example .sorting_1").css({width:'320px'});
+        },function(){
+            $("#example .sorting_1").css({width:"150px"});
+        });
     } );
+
+
+
 
 </script>
 </body>
-
+<script src="js/fullscreen.js"></script>
 </html>
