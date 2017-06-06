@@ -251,9 +251,9 @@
         });
         $('#example tr').attr("title", "keleyi.com");
         $('#example .sorting_1').hover(function(){
-            $("#example .sorting_1").css({width:'320px'});
+            $(this).css({width:'150px','whiteSpace':'inherit','wordBreak':'break-all','lineHeight':'30px'});
         },function(){
-            $("#example .sorting_1").css({width:"150px"});
+            $(this).css({width:"150px",'whiteSpace':'nowrap','wordBreak':'keep-all','lineHeight':'52px'});
         });
     } );
 
