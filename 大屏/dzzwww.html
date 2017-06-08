@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>政务集中机房</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/zwjzjf.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/echarts-liquidfill.js"></script>
+    <!--文字向上滚动-->
+    <link rel="stylesheet" href="css/liMarquee.css">
+    <script src="js/jquery.liMarquee.js"></script>
+    <style>
+        /*ul*/
+        .dzzDP_dowebok { width:97%; height: 80%;margin: 9% auto 0;font-size: 14px;overflow: hidden;}
+        .dzzDP_dowebok .dzzDP_dowebok_lists { margin: 0; line-height: 30px;}
+/*ul1*/
+        .dzzDP_dowebok1{
+            width: 96%;
+            height: 120px;
+            margin: 0 auto 0;
+            font-size: 14px;
+            overflow: hidden;
+        }
+        .dzzDP_box_b {
+            width: 36px;
+            height: 20px;
+            font-size: 20px;
+            overflow: visible;
+            outline: none;
+            border: none;
+            color: white;
+            background: rgba(255,255,255,0);
+        }
+    </style>
+</head>
+<body class="bg_dzzw_bg">
+<div class="zwjzjf-head">
+    <p>成都市电子政务公共平台资源管理与服务系统</p>
+</div>
+<div class="zwjzjf_Box">
+    <div class="zwjzjf_BOxleft1 public_left">
+        <div class="zwjzjf_boxtitles">
+            <span class="zwjzjf_boxtitle">运行信息</span>
+        </div>
+        <!--服务能力分析-->
+        <div class="zwjzjf_BOx_boxs zwjzjf_BOx_box1">
+            <div class="zwjzjf_boxtitle1">服务能力分析</div>
+            <div class="zwjzjf_titles zwjzjf_titles_click1">
+                <span class="zwjzjf_titles_1 zwjzjf_titles_stack">总</span>
+                <span class="zwjzjf_titles_1 ">年</span>
+                <span class="zwjzjf_titles_1 ">季</span>
+                <span class="zwjzjf_titles_1 ">月</span>
+            </div>
+            <div class="dzzDP_box">
+                <div class="dzzDP_boxLeft public_left">
+                    <p class="dzzDP_boxtext">
+                        <input type="text" class="dzzDP_box_b dzzDP_box_b_1" value="115">
+                        <!--<b class="dzzDP_box_b">115</b>-->
+                        <span class="dzzDP_box_span">家</span></p>
+                    <p class="dzzDP_boxtext">服务单位</p>
+                </div>
+                <div class="dzzDP_boxRight public_right">
+                    <p class="dzzDP_boxtext">
+                        <input type="text" readonly="readonly" class="dzzDP_box_b dzzDP_box_b_2" value="1115">
+                        <span class="dzzDP_box_span">家</span></p>
+                    <p class="dzzDP_boxtext">服务单位</p>
+                </div>
+            </div>
+
+            <div id="echart1" style="width:100%;height:50%;"></div>
+
+
+        </div>
+        <!--资源总量-->
+        <div class="zwjzjf_BOx_boxs zwjzjf_BOx_box2">
+            <div class="zwjzjf_boxtitle1">资源总量</div>
+            <div class="zwjzjf_inners_1">
+                <div class="zwjzjf_inners_bottom background_55b85a">
+                    <div class="zwjzjf_inners_bottomLeft public_left">
+                        政务外网IP
+                    </div>
+                    <div class="zwjzjf_inners_bottomRight public_right background_5dbb62">
+                        <p><b class="fontsize_18">426</b><span class="zwjzjf_small_1">个</span></p>
+                    </div>
+                </div>
+                <div class="zwjzjf_inners_bottom background_29a89d">
+                    <div class="zwjzjf_inners_bottomLeft public_left">
+                        互联网IP
+                    </div>
+                    <div class="zwjzjf_inners_bottomRight public_right background_37afa4">
+                        <p><b class="fontsize_18">65</b><span class="zwjzjf_small_1">个</span></p>
+                    </div>
+                </div>
+                <div class="zwjzjf_inners_bottom background_3f76d0">
+                    <div class="zwjzjf_inners_bottomLeft public_left">
+                        互联网宽带
+                    </div>
+                    <div class="zwjzjf_inners_bottomRight public_right background_4f83da">
+                        <p><b class="fontsize_18">9.5</b><span class="zwjzjf_small_1">GB</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--机房接入情况-->
+        <div class="zwjzjf_BOx_boxs zwjzjf_BOx_box3">
+            <div class="zwjzjf_boxtitle1">公网IP用量</div>
+            <div id="echart2" style="width:100%;height:280px;"></div>
+        </div>
+
+    </div>
+    <!--content-->
+    <div class="zwjzjf_BOxleft2 public_left">
+        <div class="zwjzjf_region">
+            <!--办公区-->
+            <div  class="aStyleSub">
+                <div style="width: 90%;height: 90%;margin: 5% auto">
+                    <img src="images/dzzw_tbt.png"  alt="">
+                </div>
+            </div>
+            <!--表格-->
+            <div class="zwjzjf_region_1">
+                <div class="zwjzjf_region_1Left public_left">
+                    <div class="zwjzjf_region_1Left_text">
+                        <div class="dzzDP_box_txt">
+                            重点设备运行情况分析
+                        </div>
+                    </div>
+                </div>
+                <div class="zwjzjf_region_1Right public_right">
+                    <ul class="dzzDP_lists">
+                        <li class="dzzDP_lis dzzDP_lis_1">序号</li>
+                        <li class="dzzDP_lis dzzDP_lis_2">设备名称</li>
+                        <li class="dzzDP_lis dzzDP_lis_3">管理地址</li>
+                        <li class="dzzDP_lis dzzDP_lis_4">设备地点</li>
+                        <li class="dzzDP_lis dzzDP_lis_5">运行情况</li>
+                    </ul>
+                    <!--滚动-->
+                    <div class="dzzDP_dowebok1">
+                        <ul class="dzzDP_dowebok_list">
+                            <li class="dzzDP_lis">
+                                <span class="dzzDP_spans dzzDP_lis_1">1</span>
+                                <span class="dzzDP_spans dzzDP_lis_2">中兴M6000</span>
+                                <span class="dzzDP_spans dzzDP_lis_3">192.168.40.1</span>
+                                <span class="dzzDP_spans dzzDP_lis_4">城南机房</span>
+                                <span class="dzzDP_spans dzzDP_lis_5"><img src='images/sjjh_dp_yx1.png' style='margin-right: 10px'  alt=''>正常运行</span>
+                            </li>
+                            <li class="dzzDP_lis">
+                                <span class="dzzDP_spans dzzDP_lis_1">2</span>
+                                <span class="dzzDP_spans dzzDP_lis_2">中兴M6000</span>
+                                <span class="dzzDP_spans dzzDP_lis_3">192.168.40.1</span>
+                                <span class="dzzDP_spans dzzDP_lis_4">城南机房</span>
+                                <span class="dzzDP_spans dzzDP_lis_5"><img src='images/sjjh_dp_yx1.png' style='margin-right: 10px'  alt=''>正常运行</span>
+                            </li>
+                            <li class="dzzDP_lis">
+                                <span class="dzzDP_spans dzzDP_lis_1">3</span>
+                                <span class="dzzDP_spans dzzDP_lis_2">中兴M6000</span>
+                                <span class="dzzDP_spans dzzDP_lis_3">192.168.40.1</span>
+                                <span class="dzzDP_spans dzzDP_lis_4">城南机房</span>
+                                <span class="dzzDP_spans dzzDP_lis_5"><img src='images/sjjh_dp_yx1.png' style='margin-right: 10px'  alt=''>正常运行</span>
+                            </li>
+                            <li class="dzzDP_lis">
+                                <span class="dzzDP_spans dzzDP_lis_1">3</span>
+                                <span class="dzzDP_spans dzzDP_lis_2">中兴M6000</span>
+                                <span class="dzzDP_spans dzzDP_lis_3">192.168.40.1</span>
+                                <span class="dzzDP_spans dzzDP_lis_4">城南机房</span>
+                                <span class="dzzDP_spans dzzDP_lis_5"><img src='images/sjjh_dp_yx1.png' style='margin-right: 10px'  alt=''>正常运行</span>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+    <!--right-->
+
+    <div class="zwjzjf_BOxleft3 public_right">
+        <!--机房信息-->
+        <div class="zwjzjf_boxtitles">
+            <span class="zwjzjf_boxtitle">运维信息</span>
+        </div>
+        <!--互联网出口状态-->
+        <div class="zwjzjf_inners">
+            <div class="zwjzjf_boxtitle1 zwjzjf_boxtitle1s">互联网出口状态</div>
+            <div class="dzzDP_dowebok">
+                <ul class="dzzDP_dowebok_lists">
+                    <li class="dzzDP_dowebok_li">
+                        <div class="dzzDP_dowebok_liLeft public_left">
+                            <img src="images/sjjh_dp_yx1.png" alt="" class="dzzDP_dowebok_liImg">运行正常
+                        </div>
+                        <div class="dzzDP_dowebok_liRight public_right">
+                            <div class="public_left">
+                                四办公区应用系统
+                            </div>
+                            <div class="public_right">
+                                电信
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dzzDP_dowebok_li">
+                        <div class="dzzDP_dowebok_liLeft public_left">
+                            <img src="images/sjjh_dp_yx1.png" alt="" class="dzzDP_dowebok_liImg">运行正常
+                        </div>
+                        <div class="dzzDP_dowebok_liRight public_right">
+                            <div class="public_left">
+                                老两条
+                            </div>
+                            <div class="public_right">
+                                联通
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dzzDP_dowebok_li">
+                        <div class="dzzDP_dowebok_liLeft public_left">
+                            <img src="images/sjjh_dp_yx2.png" alt="" class="dzzDP_dowebok_liImg">运行异常
+                        </div>
+                        <div class="dzzDP_dowebok_liRight public_right">
+                            <div class="public_left">
+                                新两条
+                            </div>
+                            <div class="public_right">
+                                电信
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dzzDP_dowebok_li">
+                        <div class="dzzDP_dowebok_liLeft public_left">
+                            <img src="images/sjjh_dp_yx3.png" alt="" class="dzzDP_dowebok_liImg">运行停机
+                        </div>
+                        <div class="dzzDP_dowebok_liRight public_right">
+                            <div class="public_left">
+                                四办公区应用系统
+                            </div>
+                            <div class="public_right">
+                                电信
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dzzDP_dowebok_li">
+                        <div class="dzzDP_dowebok_liLeft public_left">
+                            <img src="images/sjjh_dp_yx1.png" alt="" class="dzzDP_dowebok_liImg">运行正常
+                        </div>
+                        <div class="dzzDP_dowebok_liRight public_right">
+                            <div class="public_left">
+                                四办公区应用系统
+                            </div>
+                            <div class="public_right">
+                                电信
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dzzDP_dowebok_li">
+                        <div class="dzzDP_dowebok_liLeft public_left">
+                            <img src="images/sjjh_dp_yx1.png" alt="" class="dzzDP_dowebok_liImg">运行正常
+                        </div>
+                        <div class="dzzDP_dowebok_liRight public_right">
+                            <div class="public_left">
+                                四办公区应用系统
+                            </div>
+                            <div class="public_right">
+                                电信
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dzzDP_dowebok_li">
+                        <div class="dzzDP_dowebok_liLeft public_left">
+                            <img src="images/sjjh_dp_yx1.png" alt="" class="dzzDP_dowebok_liImg">运行正常
+                        </div>
+                        <div class="dzzDP_dowebok_liRight public_right">
+                            <div class="public_left">
+                                四办公区应用系统
+                            </div>
+                            <div class="public_right">
+                                电信
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dzzDP_dowebok_li">
+                        <div class="dzzDP_dowebok_liLeft public_left">
+                            <img src="images/sjjh_dp_yx1.png" alt="" class="dzzDP_dowebok_liImg">运行正常
+                        </div>
+                        <div class="dzzDP_dowebok_liRight public_right">
+                            <div class="public_left">
+                                四办公区应用系统
+                            </div>
+                            <div class="public_right">
+                                电信
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dzzDP_dowebok_li">
+                        <div class="dzzDP_dowebok_liLeft public_left">
+                            <img src="images/sjjh_dp_yx1.png" alt="" class="dzzDP_dowebok_liImg">运行正常
+                        </div>
+                        <div class="dzzDP_dowebok_liRight public_right">
+                            <div class="public_left">
+                                四办公区应用系统
+                            </div>
+                            <div class="public_right">
+                                电信
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--机房统计信息-->
+        <div class="zwjzjf_inners">
+            <div class="zwjzjf_boxtitle1 zwjzjf_boxtitle1s">事件分析</div>
+            <div class="zwjzjf_titles zwjzjf_titles_click2">
+                <span class="zwjzjf_titles_1 zwjzjf_titles_stack">总</span>
+                <span class="zwjzjf_titles_1 ">年</span>
+                <span class="zwjzjf_titles_1 ">季</span>
+                <span class="zwjzjf_titles_1 ">月</span>
+            </div>
+            <div id="echart3" style="width:100%;height:40%;"></div>
+            <div id="echart4" style="width:100%;height:45%;"></div>
+
+
+
+        </div>
+
+
+    </div>
+</div>
+</body>
+<script>
+    $('#mask').css({height:$(document.body).height()});
+    //机房统计信息
+    var zwjzjf_span=$('.zwjzjf_titles_click1 span');
+    zwjzjf_span.click(function () {
+        var index = $(this).index();  //1
+        if(index>=0){
+            zwjzjf_span.removeClass('zwjzjf_titles_stack')
+        }
+        zwjzjf_span.eq(index).addClass('zwjzjf_titles_stack').siblings('.zwjzjf_titles_1 ').removeClass('zwjzjf_titles_stack');
+        return false;
+
+    });
+    //列表信息
+    var zwjzjf_span2=$('.zwjzjf_titles_click2 span');
+    zwjzjf_span2.click(function () {
+        var index = $(this).index();  //1
+        if(index>=0){
+            zwjzjf_span2.removeClass('zwjzjf_titles_stack')
+        }
+        zwjzjf_span2.eq(index).addClass('zwjzjf_titles_stack').siblings('.zwjzjf_titles_1 ').removeClass('zwjzjf_titles_stack');
+        return false;
+
+    });
+
+    var myChart1 = echarts.init(document.getElementById('echart1'));
+    var myChart2 = echarts.init(document.getElementById('echart2'));
+    var myChart3 = echarts.init(document.getElementById('echart3'));
+    var myChart4 = echarts.init(document.getElementById('echart4'));
+    //机房设备数量
+    var option1 = {
+        tooltip: {
+            trigger: 'item',
+            formatter: "{b}: {c}:({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            x:'left',
+            y: 'center',
+            data:['终止','变更','新增'],
+            textStyle:{    //图例文字的样式
+                color:'white',
+                fontSize:10
+            }
+        },
+        color:['#3db3f7','#1eb577','#8170ef'],
+        series: [
+            {
+                name:'',
+                type:'pie',
+                selectedMode: 'single',
+                radius: [0, '80%'],
+                data:[
+                    {value:335, name:'终止'},
+                    {value:679, name:'变更'},
+                    {value:679, name:'新增'}
+                ],
+                itemStyle:{
+                    normal:{
+                        label:{
+                            show: true,
+                            formatter: '{b}',
+                            textStyle:{
+                                fontSize:12,
+                                color:'white'
+                            }
+                        },
+                        labelLine :{show:true}
+                    }
+                }
+            }
+        ]
+    };
+    //机房接入情况
+    var option2 = {
+        series: [{
+            type: 'liquidFill',
+            animation: true,
+            waveAnimation: true,
+            backgroundStyle: {
+                color: '#76a3ef'
+            },
+            color: ['#2E6ACE'],
+            center: ['50%', '50%'],
+            waveLength: '60%',
+            amplitude: 8,
+            radius: '70%',
+            label: {
+                normal: {
+                    formatter: function() {
+                        return '总量:(800个)\n\n已用:600个\n占比:75%';
+                    },
+                    textStyle: {
+                        fontSize:10,
+                        color: 'white'
+                    },
+                    position: ['50%', '40%']
+                }
+            },
+            outline: {
+                itemStyle: {
+                    borderColor: '#76a3ef',
+                    borderWidth: 0
+                },
+                borderDistance: 0
+            },
+            data: [0.75]
+        }]
+    };
+    //区域事件分析
+    var option3= {
+        title: {
+            text: '区域事件分析',
+            textStyle:{
+                fontSize: 16,
+                color:'white'
+            }
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a}<br/> {b} : {c}"
+        },
+        legend: {
+//        show:false,
+            orient: 'vertical',
+            x:'left',
+            y: 'center',
+            data:['集中办公区','分集中办公区'],
+            textStyle:{    //图例文字的样式
+                color:'white'
+            }
+//            ,
+//            backgroundColor: '#eee',
+//            borderColor: 'rgba(178,34,34,0.8)',
+//            borderWidth: 4,
+//            padding: 10,    // [5, 10, 15, 20]
+//            itemGap: 20
+
+        },
+        color:['#3db3f7','#4f83da'],
+        series : [
+            {   name:'区域事件分析 ',
+                type:'pie',
+                radius : [20, 80],
+                center : ['50%', '50%'],
+                roseType : 'radius',
+                data:[
+                    {value:400,
+                        name:'集中办公区'
+                    },
+                    { value:200,
+                        name:'分集中办公区'
+                    }
+                ],
+                itemStyle:{
+                    normal:{
+                        label:{
+                            show: true,
+                            formatter: '{d}%',
+                            textStyle:{
+                                fontSize:12,
+                                color:'white'
+                            },
+                            position : 'inner'
+                        },
+                        labelLine :{show:true}
+                    }
+                }
+            }
+        ]
+    };
+    //具体事件分析
+    var option4= {
+        title: {
+            text: '具体事件分析',
+            textStyle:{
+                fontSize: 16,
+                color:'white'
+            }
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a}<br/>{b} : {c}"
+        },
+        legend: {
+//        show:false,
+            orient: 'vertical',
+            x:'left',
+            y: 'center',
+            data:['技术支持','故障','巡检','演练','业务咨询'],
+            textStyle:{    //图例文字的样式
+                color:'white'
+            }
+        },
+        color:['#15daf7','#4f83da','#76a3ef','#3db3f7','#bcf0ff'],
+        series : [
+            {   name:'具体事件分析 ',
+                type:'pie',
+                radius : [20, 80],
+                center : ['50%', '50%'],
+                roseType : 'radius',
+                data:[
+                    {value:400,
+                        name:'技术支持'
+                    },
+                    { value:200,
+                        name:'故障'
+                    },
+                    { value:200,
+                        name:'巡检'
+                    },
+                    { value:200,
+                        name:'演练'
+                    },
+                    { value:200,
+                        name:'业务咨询'
+                    }
+                ]
+                ,
+                itemStyle:{
+                    normal:{
+                        label:{
+                            show: false,
+                            formatter: '{c}',
+                            textStyle:{
+                                fontSize:10,
+                                color:'white'
+                            }
+                        },
+                        labelLine :{show:true}
+                    }
+                }
+            }
+        ]
+    };
+
+
+    myChart1.setOption(option1);
+    myChart2.setOption(option2);
+    myChart3.setOption(option3);
+    myChart4.setOption(option4);
+
+
+    //ul滚动
+    $(function(){
+        $('.dzzDP_dowebok').liMarquee({
+            direction: 'up'
+        });
+    });
+
+    //ul滚动
+    $(function(){
+        $('.dzzDP_dowebok1').liMarquee({
+            direction: 'up'
+        });
+    });
+    //服务能力分析input
+    var text_length_1 = $('.dzzDP_box_b_1').val().length;
+    var current_width_1 = parseInt(text_length_1) *12;
+    $('.dzzDP_box_b_1').css("width",current_width_1+"px");
+
+    var text_length_2 = $('.dzzDP_box_b_2').val().length;
+    var current_width_2 = parseInt(text_length_2) *12;
+    $('.dzzDP_box_b_2').css("width",current_width_2+"px");
+</script>
+</html>

@@ -2,6 +2,16 @@
  * Created by Administrator on 2017/5/17 0017.
  */
 $(function ($) {
+    $('.jrfw_mainbav  li,.jrfw_topnav .jrfw_mainbav li').each(function() {
+        $(this).click(function() {
+            var href1=$(this).attr('class');
+            console.log(href1);
+            var scrollT=$("#"+href1).offset().top-30;
+            console.log(scrollT);
+            $("body").scrollTop(scrollT);
+
+        })
+    });
     $(window).scroll(function(){
         console.log($(window).scrollTop());
         if($(window).scrollTop()>430){
@@ -10,37 +20,32 @@ $(function ($) {
         }else{
             $(".jrfw_topnav").hide();
         }
-        $(".jrfw_fwjs").click(function () {
-            $("body").scrollTop(465);
-            $(".jrfw_mainbav  .jrfw_fwjs").addClass("lis").siblings().removeClass("lis");
-        });
-        $(".jrfw_fwfw").click(function () {
-            $("body").scrollTop(650);
-            $(".jrfw_mainbav  .jrfw_fwfw").addClass("lis").siblings().removeClass("lis");
-        });
-        $(".jrfw_fwxy").click(function () {
-            $("body").scrollTop(915);
-            $(".jrfw_mainbav  .jrfw_fwxy").addClass("lis").siblings().removeClass("lis");
-        });
-        $(".jrfw_yycj").click(function () {
-            $("body").scrollTop(1195);
-            $(".jrfw_mainbav  .jrfw_yycj").addClass("lis").siblings().removeClass("lis");
-        });
-        $(".jrfw_fwlc").click(function () {
-            $("body").scrollTop(1623);
-            $(".jrfw_mainbav  .jrfw_fwlc").addClass("lis").siblings().removeClass("lis");
-        });
-        if($(window).scrollTop()>465&&$(window).scrollTop()<650){
-            $(".jrfw_mainbav  .jrfw_fwjs").addClass("lis").siblings().removeClass("lis");
-        }else if($(window).scrollTop()>650&&$(window).scrollTop()<915){
-            $(".jrfw_mainbav  .jrfw_fwfw").addClass("lis").siblings().removeClass("lis");
-        }else if($(window).scrollTop()>915&&$(window).scrollTop()<1195){
-            $(".jrfw_mainbav  .jrfw_fwxy").addClass("lis").siblings().removeClass("lis");
-        }else if($(window).scrollTop()>1195&&$(window).scrollTop()<1623){
-            $(".jrfw_mainbav  .jrfw_yycj").addClass("lis").siblings().removeClass("lis");
-        }else if($(window).scrollTop()>1528&&$(window).scrollTop()<2080){
-            $(".jrfw_mainbav  .jrfw_fwlc").addClass("lis").siblings().removeClass("lis");
-        }
+
+        // $(".jrfw_fwfw").click(function () {
+        //     $("body").scrollTop(450);
+        //     $(".jrfw_mainbav  .jrfw_fwfw").addClass("lis").siblings().removeClass("lis");
+        // });
+        // $(".jrfw_fwxy").click(function () {
+        //     $("body").scrollTop(715);
+        //     $(".jrfw_mainbav  .jrfw_fwxy").addClass("lis").siblings().removeClass("lis");
+        // });
+        // $(".jrfw_yycj").click(function () {
+        //     $("body").scrollTop(985);
+        //     $(".jrfw_mainbav  .jrfw_yycj").addClass("lis").siblings().removeClass("lis");
+        // });
+        // $(".jrfw_fwlc").click(function () {
+        //     $("body").scrollTop(1438);
+        //     $(".jrfw_mainbav  .jrfw_fwlc").addClass("lis").siblings().removeClass("lis");
+        // });
+        //  if($(window).scrollTop()>450&&$(window).scrollTop()<715){
+        //     $(".jrfw_mainbav  .jrfw_fwfw").addClass("lis").siblings().removeClass("lis");
+        // }else if($(window).scrollTop()>715&&$(window).scrollTop()<985){
+        //     $(".jrfw_mainbav  .jrfw_fwxy").addClass("lis").siblings().removeClass("lis");
+        // }else if($(window).scrollTop()>985&&$(window).scrollTop()<1438){
+        //     $(".jrfw_mainbav  .jrfw_yycj").addClass("lis").siblings().removeClass("lis");
+        // }else if($(window).scrollTop()>1120&&$(window).scrollTop()<2080){
+        //     $(".jrfw_mainbav  .jrfw_fwlc").addClass("lis").siblings().removeClass("lis");
+        // }
     });
 
     //回到顶部

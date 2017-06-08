@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>政务数据存储备份</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/sjccyzb.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <!---->
+    <link rel="stylesheet" href="css/liMarquee.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/jquery.liMarquee.js"></script>
+    <style>
+
+        table.dataTable.display tbody tr.odd , table.dataTable.order-column.stripe tbody tr.odd  {
+            background-color: rgba(255, 255, 255, 0);
+            color: white;
+        }
+        table.dataTable.display tbody tr.even , table.dataTable.order-column.stripe tbody tr.even  {
+            background-color: rgba(255, 255, 255, 0);
+        }
+        table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+            border-top:none;
+            color: white;
+        }
+        table.dataTable.row-border tbody tr:first-child th, table.dataTable.row-border tbody tr:first-child td, table.dataTable.display tbody tr:first-child th, table.dataTable.display tbody tr:first-child td {
+            border-top: none;
+             color: white;
+        }
+        /*表头背景*/
+        #example_wrapper #example thead tr:first-child{
+            background: url("images/sjcc_btm_table.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        #example_wrapper #example{
+            overflow: hidden;
+        }
+        #example_wrapper #example tbody {
+            border: 1px solid #304283;
+        }
+        table.dataTable thead th, table.dataTable thead td {
+            border: none;
+        }
+        #example td{
+            border-bottom: 1px solid #304283;
+            border-left: 1px solid #304283;
+        }
+        #example tr td:last-child{
+            border-right: 1px solid #304283;
+        }
+        #example_wrapper #example td {
+            border-left: 1px solid #304283;
+        }
+
+        table.dataTable thead .sorting_asc {
+             background-image: none;
+            color: white;
+            border-bottom: 1px solid #304283;
+        }
+        table.dataTable thead .sorting {
+            background-image: none;
+            color: white;
+            border-bottom: 1px solid #304283;
+        }
+        table.dataTable thead .sorting_desc {
+             background-image:none;
+            color: white;
+            border-bottom: 1px solid #304283;
+        }
+/*分页*/
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+             color: white;
+        }
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+            color: white !important;
+        }
+/*表格高度*/
+        table.dataTable.display tbody tr.even, table.dataTable.order-column.stripe tbody tr.even {
+            height: 40px;
+        }
+        /*ul*/
+        .dowebok { width:100%; height: 270px;margin: 30px auto 0; font-size: 14px;}
+        .dowebok .sjccyzb_lists { margin: 0; line-height: 30px;}
+    </style>
+</head>
+<body class="dzzwggpt_bg">
+<div class="sjccyzb-head">
+    <p>成都市电子政务公共平台资源管理与服务系统</p>
+</div>
+<div class="sjccyzb_box">
+    <!--左侧-->
+    <div class="sjccyzb_boxLeft public_left">
+        <div class="sjccyzb_boxtitle">
+            <span class="sjccyzb_boxtitle1">政务数据存储备份</span>
+        </div>
+        <!--left-top-->
+        <div class="sjccyzb_inners">
+            <!--汇总统计-->
+            <div class="sjccyzb_inner public_left">
+                <div class="sjccyzb_title">汇总统计</div>
+                <div class="sjccyzb_inner_1s">
+                    <div class="sjccyzb_inner_1 sjccyzb_inner_1_1 public_left">
+                        <div class="sjccyzb_inner_1s_1 background_5dbb62">
+                            接入单位
+                        </div>
+                        <div class="sjccyzb_inner_1s_2">
+                            <p><b>32</b><span class="Small_20">家</span></p>
+                        </div>
+                    </div>
+                    <div class="sjccyzb_inner_1 sjccyzb_inner_1_2 public_left">
+                        <div class="sjccyzb_inner_1s_1 background_5dbb62">
+                            接入单位
+                        </div>
+                        <div class="sjccyzb_inner_1s_2">
+                            <p><b>258</b><span class="Small_20">套</span></p>
+                        </div>
+                    </div>
+                    <div class="sjccyzb_inner_1 sjccyzb_inner_1_3 public_left">
+                        <div class="sjccyzb_inner_1s_1 background_4a7fd4">
+                            资源用量
+                        </div>
+                        <div class="sjccyzb_inner_1s_2">
+                            <p><b>1023</b><span class="Small_20">TB</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--容量类型分析  -->
+            <div class="sjccyzb_inner sjccyzb_inner1 public_left">
+                <div class="sjccyzb_title">容量类型分析</div>
+                <div class="sjccyzb_rl">
+                    <div class="sjccyzb_rl_left public_left">
+                        <div id="echart" style="width:100%;height:220px;"></div>
+                    </div>
+                    <div class="sjccyzb_rl_right public_left">
+                        <div class="dzzwggptRL_box">
+                            <div class="dzzwggptRL_text background_5588dd">
+                                <div class="dzzwggptRL_textLeft public_left">
+                                    存储
+                                </div>
+                                <div class="dzzwggptRL_textRight public_right background_7aa6ef">
+                                    <p><b class="b_24">500</b><span class="Small_20">TB</span></p>
+                                </div>
+                            </div>
+                            <div class="dzzwggptRL_text background_1eb577">
+                                <div class="dzzwggptRL_textLeft public_left">
+                                    备份
+                                </div>
+                                <div class="dzzwggptRL_textRight public_right background_42d196">
+                                    <p><b class="b_24">420</b><span class="Small_20">TB</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--存储介质分析   -->
+            <div class="sjccyzb_inner public_left">
+                <div class="sjccyzb_title">存储介质分析</div>
+                <div class="sjccyzb_rl">
+                    <div class="sjccyzb_rl_left public_left">
+                        <div id="echart1" style="width:100%;height:220px;"></div>
+                    </div>
+                    <div class="sjccyzb_rl_right public_left">
+                        <div class="dzzwggptRL_box1">
+                            <div class="dzzwggptRL_text background_5588dd">
+                                <div class="dzzwggptRL_textLeft public_left">
+                                    SSD
+                                </div>
+                                <div class="dzzwggptRL_textRight public_right background_7aa6ef">
+                                    <p><b class="b_24">500</b><span class="Small_20">TB</span></p>
+                                </div>
+                            </div>
+                            <div class="dzzwggptRL_text background_1eb577">
+                                <div class="dzzwggptRL_textLeft public_left">
+                                    SAS
+                                </div>
+                                <div class="dzzwggptRL_textRight public_right background_42d196">
+                                    <p><b class="b_24">420</b><span class="Small_20">TB</span></p>
+                                </div>
+                            </div>
+                            <div class="dzzwggptRL_text background_8170ef">
+                                <div class="dzzwggptRL_textLeft public_left">
+                                    SATA
+                                </div>
+                                <div class="dzzwggptRL_textRight public_right background_8e80ec">
+                                    <p><b class="b_24">420</b><span class="Small_20">TB</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!--left-content-->
+        <div class="sjccyzb_Box">
+            <div style="width:96%;margin:30px auto 0">
+                <div id="echart2" style="width:100%;height:310px;"></div>
+            </div>
+        </div>
+        <!--left-bottom-->
+        <div class="sjccyzb_bottomBg">
+            <div class="sjccyzb_bottomBox">
+                <div class="sjccyzb_bottomBox_left public_left">
+                    <div class="sjccyzb_bottomBox_leftBg">
+                        <div class="sjccyzb_bottomBox_leftText">资源使用率</div>
+                    </div>
+                </div>
+                <div class="sjccyzb_bottomBox_right public_right">
+                    <!--表格-->
+                    <table id="example" class="display" width="98%" ></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!--右侧-->
+    <div class="sjccyzb_boxRight public_right">
+        <div class="sjccyzb_boxtitle sjccyzb_right_boxtitle">
+            <span class="sjccyzb_boxtitle1">运维信息</span>
+        </div>
+        <!--运维事件-->
+        <div class="sjccyzb_boxRight_waps">
+            <div class="sjccyzb_title">运维事件</div>
+            <div class="dowebok">
+                <ul class="sjccyzb_lists">
+                    <li class="sjccyzb_li background_347cdb">
+                        <div class="sjccyzb_listsLeft public_left background_1c69bf">
+                            <img class="sjccyzb_lists_img" src="images/sjcc_wcl.png"  alt=""><span>未处理</span>
+                        </div>
+                        <div class="sjccyzb_listsRight public_right">
+                            运维事件1
+                        </div>
+                    </li>
+                    <li class="sjccyzb_li background_347cdb">
+                        <div class="sjccyzb_listsLeft public_left background_1c69bf">
+                            <img class="sjccyzb_lists_img" src="images/sjcc_ycl.png"  alt=""><span>已处理</span>
+                        </div>
+                        <div class="sjccyzb_listsRight public_right">
+                            运维事件2
+                        </div>
+                    </li>
+                    <li class="sjccyzb_li background_347cdb">
+                        <div class="sjccyzb_listsLeft public_left background_1c69bf">
+                            <img class="sjccyzb_lists_img" src="images/sjcc_wcl.png"  alt=""><span>未处理</span>
+                        </div>
+                        <div class="sjccyzb_listsRight public_right">
+                            运维事件3
+                        </div>
+                    </li>
+                    <li class="sjccyzb_li background_347cdb">
+                        <div class="sjccyzb_listsLeft public_left background_1c69bf">
+                            <img class="sjccyzb_lists_img" src="images/sjcc_wcl.png"  alt=""><span>未处理</span>
+                        </div>
+                        <div class="sjccyzb_listsRight public_right">
+                            运维事件4
+                        </div>
+                    </li>
+                    <li class="sjccyzb_li background_347cdb">
+                        <div class="sjccyzb_listsLeft public_left background_1c69bf">
+                            <img class="sjccyzb_lists_img" src="images/sjcc_wcl.png"  alt=""><span>未处理</span>
+                        </div>
+                        <div class="sjccyzb_listsRight public_right">
+                            运维事件5
+                        </div>
+                    </li>
+                    <li class="sjccyzb_li background_347cdb">
+                        <div class="sjccyzb_listsLeft public_left background_1c69bf">
+                            <img class="sjccyzb_lists_img" src="images/sjcc_wcl.png"  alt=""><span>未处理</span>
+                        </div>
+                        <div class="sjccyzb_listsRight public_right">
+                            运维事件6
+                        </div>
+                    </li>
+                    <li class="sjccyzb_li background_347cdb">
+                        <div class="sjccyzb_listsLeft public_left background_1c69bf">
+                            <img class="sjccyzb_lists_img" src="images/sjcc_wcl.png"  alt=""><span>未处理</span>
+                        </div>
+                        <div class="sjccyzb_listsRight public_right">
+                            运维事件7
+                        </div>
+                    </li>
+                    <li class="sjccyzb_li background_347cdb">
+                        <div class="sjccyzb_listsLeft public_left background_1c69bf">
+                            <img class="sjccyzb_lists_img" src="images/sjcc_wcl.png"  alt=""><span>未处理</span>
+                        </div>
+                        <div class="sjccyzb_listsRight public_right">
+                            运维事件8
+                        </div>
+                    </li>
+                    <li class="sjccyzb_li background_347cdb">
+                        <div class="sjccyzb_listsLeft public_left background_1c69bf">
+                            <img class="sjccyzb_lists_img" src="images/sjcc_wcl.png"  alt=""><span>未处理</span>
+                        </div>
+                        <div class="sjccyzb_listsRight public_right">
+                            运维事件9
+                        </div>
+                    </li>
+                    <li class="sjccyzb_li background_347cdb">
+                        <div class="sjccyzb_listsLeft public_left background_1c69bf">
+                            <img class="sjccyzb_lists_img" src="images/sjcc_wcl.png"  alt=""><span>未处理</span>
+                        </div>
+                        <div class="sjccyzb_listsRight public_right">
+                            运维事件10
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--事件诱发原因分析  -->
+        <div class="sjcc_rtBtm">
+            <div class="sjccyzb_title1">事件诱发原因分析</div>
+            <div class="sjccyzb_titles sjccyzb_titles_click1">
+                <span class="sjccyzb_titles_1 sjccyzb_titles_stack">总</span>
+                <span class="sjccyzb_titles_1 ">年</span>
+                <span class="sjccyzb_titles_1 ">季</span>
+                <span class="sjccyzb_titles_1 ">月</span>
+            </div>
+            <div id="echart3" style="width:100%;height:210px;"></div>
+        </div>
+        <!--运维类型分析     -->
+        <div class="sjcc_rtBtm">
+            <div class="sjccyzb_title1">运维类型分析</div>
+            <div class="sjccyzb_titles sjccyzb_titles_click2">
+                <span class="sjccyzb_titles_1 sjccyzb_titles_stack">总</span>
+                <span class="sjccyzb_titles_1 ">年</span>
+                <span class="sjccyzb_titles_1 ">季</span>
+                <span class="sjccyzb_titles_1 ">月</span>
+            </div>
+            <div id="echart4" style="width:100%;height:210px;"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    //事件诱发原因分析
+    var sjccyzb_span1=$('.sjccyzb_titles_click1 span');
+    sjccyzb_span1.click(function () {
+        var index = $(this).index();  //1
+        if(index>=0){
+            sjccyzb_span1.removeClass('sjccyzb_titles_stack')
+        }
+        sjccyzb_span1.eq(index).addClass('sjccyzb_titles_stack').siblings('.sjccyzb_titles_1').removeClass('sjccyzb_titles_stack');
+        return false;
+
+    });
+    //事件诱发原因分析
+    var sjccyzb_span2=$('.sjccyzb_titles_click2 span');
+    sjccyzb_span2.click(function () {
+        var index = $(this).index();  //1
+        if(index>=0){
+            sjccyzb_span2.removeClass('sjccyzb_titles_stack')
+        }
+        sjccyzb_span2.eq(index).addClass('sjccyzb_titles_stack').siblings('.sjccyzb_titles_1').removeClass('sjccyzb_titles_stack');
+        return false;
+
+    });
+    var myChart = echarts.init(document.getElementById('echart'));
+    var myChart1 = echarts.init(document.getElementById('echart1'));
+    var myChart2 = echarts.init(document.getElementById('echart2'));
+    var myChart3 = echarts.init(document.getElementById('echart3'));
+    var myChart4 = echarts.init(document.getElementById('echart4'));
+    var option = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{b} : {c}"
+        },
+        legend: {
+        show:false,
+            orient: 'horizontal',
+            x:'center',
+            y: 'bottom',
+            data:['备份','存储'],
+            textStyle:{    //图例文字的样式
+                color:'white'
+            }
+        },
+        series : [
+            {   name:'',
+                type:'pie',
+                radius : [0,80],
+                center : ['50%', '50%'],
+                roseType : 'radius',
+                data:[
+                    {value:500,
+                        name:'备份',
+                        itemStyle:{
+                            normal:{
+                                color:'#1eb577'
+                            }
+                        }
+                    },
+                    { value:420,
+                        name:'存储',
+                        itemStyle:{
+                            normal:{
+                                color:'#4f83da'
+                            }
+                        }
+                    }
+                ],
+                itemStyle:{
+                    normal:{
+                        label:{
+                            show: true,
+                            formatter: '{d}%',
+                            textStyle:{
+                                fontSize:12,
+                                color:'white'
+                            },
+                            position : 'inner'
+                        },
+                        labelLine :{show:true}
+                    }
+                }
+            }
+        ]
+    };
+    var option1 = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{b} : {c}"
+        },
+        legend: {
+            show:false,
+            orient: 'horizontal',
+            x:'center',
+            y: 'bottom',
+            data:['SSD','SAS','SATA'],
+            textStyle:{    //图例文字的样式
+                color:'white'
+            }
+        },
+        color:['#4f83da','#1eb577','#8170ef'],
+        series : [
+            {   name:'',
+                type:'pie',
+                radius : [0,80],
+                center : ['50%', '50%'],
+                roseType : 'radius',
+                data:[
+                    {value:520,
+                        name:'SSD'
+                    },
+                    { value:350,
+                        name:'SAS'
+                    },
+                    { value:350,
+                        name:'SATA'
+                    }
+                ],
+                itemStyle:{
+                    normal:{
+                        label:{
+                            show: true,
+                            formatter: '{d}%',
+                            textStyle:{
+                                fontSize:12,
+                                color:'white'
+                            },
+                            position : 'inner'
+                        },
+                        labelLine :{show:true}
+                    }
+                }
+            }
+        ]
+    };
+    var option2 = {
+        title: {
+            text: '存储灾备数据趋势图',
+            textStyle:{
+                fontSize: 14,
+                color:'#d38819'
+            }
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            x:'right',
+            data:['存储容量','备份容量','总量'],
+            textStyle:{    //图例文字的样式
+                color:'white'
+            }
+
+        },
+        color:['#15daf7','#4f83da','#00c1de'],
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                axisLine:{
+                    lineStyle:{
+                        color:'white'
+                    }
+                },
+                data: ["2007","2008","2010","2011","2012","2013","2014","2015","2016","2017"]
+            }
+        ],
+        yAxis: {
+            type : 'value',
+            name:'单位:TB',
+            axisLabel : {
+                formatter: '{value}'
+            },
+            axisLine:{
+                lineStyle:{
+                    color:'#8f90ed'
+                }
+            }
+        },
+        grid:{
+//      width:'180',
+//            x:'38'
+        left: '1%',
+        right: '1%',
+        bottom: '3%',
+        containLabel: true
+        },
+        series : [
+            {
+                name: '存储容量',
+                type: 'bar',
+                stack: '总量',
+                data: [5,5, 20, 36, 10, 10, 20, 36, 10, 10]
+            },
+            {
+                name: '备份容量',
+                type: 'bar',
+                stack: '总量',
+                data: [5,5, 20, 36, 10, 10, 20, 36, 10, 10]
+            },
+            {
+                name: '总量',
+                type: 'line',
+                smooth: true,
+                data: [5,5, 20, 36, 10, 10, 20, 36, 10, 10]
+            }
+        ]
+    };
+    var option3 = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            show:false,
+            data:['计划内','基础设施','灾备端','生产端','网络']
+        },
+        color:['#76a3ef','#15daf7','#51a9fe','#3db3f7','#4f83da'],
+        calculable : true,
+        series : [
+
+            {
+                name:'面积模式',
+                type:'pie',
+                radius : [0, 60],
+                center : ['50%', '50%'],
+                roseType : 'area',
+                data:[
+                    {value:10, name:'计划内'},
+                    {value:5, name:'基础设施'},
+                    {value:15, name:'灾备端'},
+                    {value:25, name:'生产端'},
+                    {value:20, name:'网络'}
+                ]
+            }
+        ]
+    };
+    var option4 = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            show:false,
+            data:['演练','业务咨询','故障处理','技术支持','巡检']
+        },
+        color:['#76a3ef','#15daf7','#51a9fe','#3db3f7','#4f83da'],
+        calculable : true,
+        series : [
+
+            {
+                name:'面积模式',
+                type:'pie',
+                radius : [0, 60],
+                center : ['50%', '50%'],
+                roseType : 'area',
+                data:[
+                    {value:10, name:'演练'},
+                    {value:5, name:'业务咨询'},
+                    {value:15, name:'故障处理'},
+                    {value:25, name:'技术支持'},
+                    {value:20, name:'巡检'}
+                ]
+            }
+        ]
+    };
+    myChart.setOption(option);
+    myChart1.setOption(option1);
+    myChart2.setOption(option2);
+    myChart3.setOption(option3);
+    myChart4.setOption(option4);
+
+
+
+    //    表格
+    var dataSet = [
+        [ "1", "优质统一存储资源池(SAS)01", "2 ", "12", "100.00%"],
+        [ "2", "优质统一存储资源池(SAS)02", "3 ", "12", "100.00%"],
+        [ "3", "优质工商局存储资源池", "43", "12", "100.00%"],
+        [ "4", "优质社保局存储资源池", " 32", "12", "100.00%"],
+        [ "5", "优质交委存储资源池", "23 ", "12", "100.00%"],
+        [ "6", "优质交委存储资源池", " 3", "12", "100.00%"],
+        [ "7", "优质交委存储资源池", "4 ", "12", "100.00%"],
+        [ "8", "优质交委存储资源池", " 5", "12", "100.00%"],
+        [ "9", "优质交委存储资源池", " 6", "12", "100.00%"],
+        [ "10", "优质交委存储资源池", "67 ", "12", "100.00%"],
+        [ "11", "优质交委存储资源池", "5 ", "12", "100.00%"],
+        [ "12", "优质交委存储资源池", "2 ", "12", "100.00%"]
+    ];
+
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "aLengthMenu": [[4, 10, 15, 20], [ "All"]],
+            data: dataSet,
+            columns: [
+                { title: "序号" },
+                { title: "项目",width:'300' },
+                { title: "分配容量" },
+                { title: "实际使用容量" },
+                { title: "使用率" }
+            ]
+        } );
+    } );
+//ul滚动
+    $(function(){
+        $('.dowebok').liMarquee({
+            direction: 'up'
+        });
+    });
+</script>
+</html>

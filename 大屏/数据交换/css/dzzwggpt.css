@@ -1,0 +1,93 @@
+.dzzwggpt_bg{
+    width: 100%;
+    height: 1080px;
+    background: url("../images/dzzwggpt_bg.png") no-repeat;
+    background-size: 100%;
+}
+.dzzwggpt_head{
+    width: 92.4%;
+    height: 210px;
+    margin-left: 6.5%;
+    margin-top: 3.5%;
+    overflow: hidden;
+}
+/*左*/
+.dzzwggpt_head_left{
+    font-size: 14px;
+    width: 13.8%;
+    height: 100%;
+    color: white;
+}
+.dzzwggpt_head_left p b{
+    font-size: 18px;
+}
+.dzzwggpt_headText {
+    margin-top: 4%;
+}
+.dzzwggpt_headText p{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.dzzwggpt_headText1 {
+    margin-top: 2%;
+}
+.dzzwggpt_headText1 p{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+/*右*/
+.dzzwggpt_head_right{
+    width: 86.2%;
+    height: 100%;
+    overflow: hidden;
+}
+.dzzwggpt_right {
+    width: 31.8%;
+    height: 100%;
+    float: left;
+    margin-right: 1.5%;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+}
+.dzzwggpt_right1{
+    width: 24%;
+    height: 100%;
+    font-size: 14px;
+}
+.dzzwggpt_right1 p b{
+    font-size: 18px;
+}
+.dzzwggpt_right2{
+    width: 42%;
+    height: 100%;
+}
+.dzzwggpt_right3{
+    width: 34%;
+    height: 100%;
+}
+
+p.dzzwggpt_right1-text {
+    margin-top: 12%;
+    height: 40px;
+    line-height: 40px;
+}
+.dzzwggpt_right .dzzwggpt_right1  .dzzwggpt_headText{
+    margin-top: 0;
+}
+.dzzwggpt_right .dzzwggpt_right1  .dzzwggpt_headText  p{
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+}
+.dzzwggpt_right .dzzwggpt_right1  .dzzwggpt_headText1{
+    margin-top: 5%;
+}
+.dzzwggpt_right .dzzwggpt_right1  .dzzwggpt_headText1  p{
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+}

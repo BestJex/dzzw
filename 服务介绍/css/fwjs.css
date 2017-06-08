@@ -23,6 +23,9 @@ li{
 .positionAbsolute{
     position: absolute!important;
 }
+.text-indent{
+    text-indent:2rem;
+}
 
 
 /*content*/
@@ -154,4 +157,16 @@ li{
 }
 .fw_jcss .fw_content_innerText  p {
     padding: 0 10px;
+}
+
+
+.fw_content_text p{
+    width: 50%;
+    font-size: 16px;
+    text-indent: 2rem;
+}
+/*电子政务外网*/
+.fw_dzzwww{
+    height: 480px;
+    background: url(../images/fw_dzzwww_bg.png)no-repeat;
 }

@@ -5,6 +5,15 @@
     <title>政务集中机房运行情况分析</title>
     <link rel="stylesheet" href="css/qkfx.css">
     <script src="js/jquery-1.7.min.js"></script>
+    <style>
+        .qkfxBox_liInner .qkfxBox_liInner_right b {
+            vertical-align: middle;
+        }
+        .qkfxBox_liInner .qkfxBox_liInner_right span {
+            font-size: 12px;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
 <!--下载提示层-->
@@ -17,7 +26,7 @@
 </div>
 
 <div class="qkfxBox">
-    <div class="qkfxBox_top">
+    <div class="qkfxBox_top" id="filelist">
         <h3 class="text">月报</h3>
         <div class="qkfxBox_top_content">
             <div class="yue">
@@ -27,7 +36,7 @@
                         <li class="qkfx_left" id="qkfx_left"><img src="images/qkfx_left.png" alt=""></li>
                         <li class="qkfx_pent" id="qkfx_pent">2016</li>
                     </ul>
-                    <ul class="list">
+                    <ul class="list" id="zhuangtai">
                         <li class="hover"><img class="ysc" src="images/qkfx_1.png"  alt=""></li>
                         <li class="hover"><img class="ysc" src="images/qkfx_1.png"  alt=""></li>
                         <li class="hover"><img class="ysc" src="images/qkfx_1.png"  alt=""></li>

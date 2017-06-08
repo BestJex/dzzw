@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>政务集中机房</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/zwjzjf.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <!--表格-->
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <script src="js/jquery.dataTables.js"></script>
+    <!--文字向上滚动-->
+    <style>
+        /*<!--表格样式 -->*/
+        table.dataTable.display tbody tr.odd , table.dataTable.order-column.stripe tbody tr.odd  {
+            background-color: rgba(255, 255, 255, 0);
+            color: white;
+        }
+        table.dataTable.display tbody tr.even , table.dataTable.order-column.stripe tbody tr.even  {
+            background-color: rgba(255, 255, 255, 0);
+        }
+        table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+            border-top:none;
+            color: white;
+        }
+        table.dataTable.row-border tbody tr:first-child th, table.dataTable.row-border tbody tr:first-child td, table.dataTable.display tbody tr:first-child th, table.dataTable.display tbody tr:first-child td {
+            border-top: none;
+            color: white;
+        }
+        /*表头背景*/
+        #example_wrapper #example thead tr:first-child{
+            background: url("images/sjcc_btm_table.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        #example_wrapper #example{
+            margin-top: 10px;
+            font-size: 14px;
+            overflow: hidden;
+        }
+        #example_wrapper #example tbody {
+            border: 1px solid #304283;
+        }
+        table.dataTable thead th, table.dataTable thead td {
+            border: none;
+        }
+        #example td{
+            border-bottom: 1px solid #304283;
+            border-left: 1px solid #304283;
+        }
+        #example tr td:last-child{
+            border-right: 1px solid #304283;
+        }
+        #example_wrapper #example td {
+            border-left: 1px solid #304283;
+        }
+
+        table.dataTable thead .sorting_asc {
+            background-image: none;
+            color: white;
+            border-bottom: 1px solid #304283;
+        }
+        table.dataTable thead .sorting {
+            background-image: none;
+            color: white;
+            border-bottom: 1px solid #304283;
+        }
+        table.dataTable thead .sorting_desc {
+            background-image:none;
+            color: white;
+            border-bottom: 1px solid #304283;
+        }
+        /*分页*/
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            color: white;
+        }
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+            color: white !important;
+        }
+        /*表格高度*/
+        table.dataTable.display tbody tr.even, table.dataTable.order-column.stripe tbody tr.even {
+            height: 35px;
+        }
+        table.dataTable.display tbody tr.odd, table.dataTable.order-column.stripe tbody tr.odd {
+            height: 35px;
+        }
+
+    </style>
+</head>
+<body class="zwjzjf_bg">
+<div class="zwjzjf-head">
+    <p>成都市电子政务公共平台资源管理与服务系统</p>
+</div>
+<div class="zwjzjf_Box">
+    <div class="zwjzjf_BOxleft1 public_left">
+        <div class="zwjzjf_boxtitles">
+            <span class="zwjzjf_boxtitle">运行信息</span>
+        </div>
+        <!--建设信息-->
+        <div class="zwjzjf_BOx_boxs zwjzjf_BOx_box1">
+            <div class="zwjzjf_boxtitle1">建设信息 </div>
+            <div class="zwjzjf_BOx_boxs_1">
+                <div class="zwjzjf_BOxboxs_left1 public_left">
+                    <p class="zwjzjf_tetle background_99b7ea">机房总面积</p>
+                    <p class='zwjzjf_tetle1'><b class='zwjzjf_b'>100</b><span class='zwjzjf_span'>M2</span></p>
+                </div>
+                <div class="zwjzjf_BOxboxs_left2 public_right">
+                    <p class="zwjzjf_tetle background_93ddf1">机房总数</p>
+                    <p class='zwjzjf_tetle1'><b class='zwjzjf_b'>41</b><span class='zwjzjf_small'>个</span></p>
+                    <p class='zwjzjf_tetle1'><b class='zwjzjf_b'>VIP</b><b class='zwjzjf_b zwjzjf_b_1'>10</b><span class='zwjzjf_small'>个</span></p>
+                </div>
+            </div>
+        </div>
+        <!--机房设备数量-->
+        <div class="zwjzjf_BOx_boxs zwjzjf_BOx_box2">
+            <div class="zwjzjf_boxtitle1">机房设备数量</div>
+            <div id="echart1" style="width:100%;height:280px;"></div>
+
+        </div>
+        <!--机房接入情况-->
+        <div class="zwjzjf_BOx_boxs zwjzjf_BOx_box3">
+            <div class="zwjzjf_boxtitle1">机房接入情况</div>
+            <div id="echart2" style="width:100%;height:280px;"></div>
+        </div>
+
+    </div>
+    <!--content-->
+    <div class="zwjzjf_BOxleft2 public_left">
+        <div class="zwjzjf_region">
+            <!--办公区-->
+            <div  class="aStyleSub">
+                <div class="mrk6"><a href="javascript:new DivWindow('popup','popup_drag','popup_exit','exitButton','1000','700',4);" ></a></div>
+                <div class="mrk5"><a href="javascript:new DivWindow('popup','popup_drag','popup_exit','exitButton','1000','700',4);" ></a></div>
+                <div class="mrk2"><a href="javascript:new DivWindow('popup','popup_drag','popup_exit','exitButton','1000','700',4);" ></a></div>
+                <div class="mrk4"><a href="javascript:new DivWindow('popup','popup_drag','popup_exit','exitButton','1000','700',4);" ></a></div>
+                <div class="mrk3"><a href="javascript:new DivWindow('popup','popup_drag','popup_exit','exitButton','1000','700',4);" ></a></div>
+            </div>
+            <!--表格-->
+            <div class="zwjzjf_region_1">
+                <div class="zwjzjf_region_1Left public_left">
+                    <div class="zwjzjf_region_1Left_text">
+                        <div class="zwjzjf_region_1Left_text1">
+                            列表信息
+                        </div>
+                    </div>
+                </div>
+                <div class="zwjzjf_region_1Right public_right">
+                    <div class="zwjzjf_titles zwjzjf_titles_click2">
+                        <span class="zwjzjf_titles_1 zwjzjf_titles_stack">月度</span>
+                        <span class="zwjzjf_titles_1 ">季度</span>
+                        <span class="zwjzjf_titles_1 ">年度</span>
+                    </div>
+                    <!--表格-->
+                    <table id="example" class="display" width="98%" ></table>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+    <!--right-->
+
+    <div class="zwjzjf_BOxleft3 public_right">
+        <!--机房信息-->
+        <div class="zwjzjf_boxtitles">
+            <span class="zwjzjf_boxtitle">机房信息</span>
+        </div>
+        <!--运行状态-->
+        <div class="zwjzjf_inners">
+            <div class="zwjzjf_boxtitle1 zwjzjf_boxtitle1s">运行状态 </div>
+            <div id="echart3" style="width:100%;height:400px;"></div>
+        </div>
+        <!--机房统计信息-->
+        <div class="zwjzjf_inners">
+            <div class="zwjzjf_boxtitle1 zwjzjf_boxtitle1s">机房统计信息 </div>
+            <div class="zwjzjf_titles zwjzjf_titles_click1">
+                <span class="zwjzjf_titles_1 zwjzjf_titles_stack">月度</span>
+                <span class="zwjzjf_titles_1 ">季度</span>
+                <span class="zwjzjf_titles_1 ">年度</span>
+            </div>
+            <div class="zwjzjf_inners_1">
+                <div class="zwjzjf_inners_bottom background_55b85a">
+                    <div class="zwjzjf_inners_bottomLeft public_left">
+                        机房日常巡检
+                    </div>
+                    <div class="zwjzjf_inners_bottomRight public_right background_5dbb62">
+                        <p><b class="fontsize_18">426</b><span class="zwjzjf_small_1">次</span></p>
+                    </div>
+                </div>
+                <div class="zwjzjf_inners_bottom background_29a89d">
+                    <div class="zwjzjf_inners_bottomLeft public_left">
+                        机房人员进出
+                    </div>
+                    <div class="zwjzjf_inners_bottomRight public_right background_37afa4">
+                        <p><b class="fontsize_18">65</b><span class="zwjzjf_small_1">人次</span></p>
+                    </div>
+                </div>
+                <div class="zwjzjf_inners_bottom background_3f76d0">
+                    <div class="zwjzjf_inners_bottomLeft public_left">
+                        机房新增设备
+                    </div>
+                    <div class="zwjzjf_inners_bottomRight public_right background_4f83da">
+                        <p><b class="fontsize_18">257</b><span class="zwjzjf_small_1">台</span></p>
+                    </div>
+                </div>
+                <div class="zwjzjf_inners_bottom background_3794ed">
+                    <div class="zwjzjf_inners_bottomLeft public_left">
+                        机房撤离设备
+                    </div>
+                    <div class="zwjzjf_inners_bottomRight public_right background_62aff9">
+                        <p><b class="fontsize_18">142</b><span class="zwjzjf_small_1">台</span></p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+</body>
+<script>
+    $('#mask').css({height:$(document.body).height()});
+    //机房统计信息
+    var zwjzjf_span=$('.zwjzjf_titles_click1 span');
+    zwjzjf_span.click(function () {
+        var index = $(this).index();  //1
+        if(index>=0){
+            zwjzjf_span.removeClass('zwjzjf_titles_stack')
+        }
+        zwjzjf_span.eq(index).addClass('zwjzjf_titles_stack').siblings('.zwjzjf_titles_1 ').removeClass('zwjzjf_titles_stack');
+        return false;
+
+    });
+    //列表信息
+    var zwjzjf_span2=$('.zwjzjf_titles_click2 span');
+    zwjzjf_span2.click(function () {
+        var index = $(this).index();  //1
+        if(index>=0){
+            zwjzjf_span2.removeClass('zwjzjf_titles_stack')
+        }
+        zwjzjf_span2.eq(index).addClass('zwjzjf_titles_stack').siblings('.zwjzjf_titles_1 ').removeClass('zwjzjf_titles_stack');
+        return false;
+
+    });
+
+    var myChart1 = echarts.init(document.getElementById('echart1'));
+    var myChart2 = echarts.init(document.getElementById('echart2'));
+    var myChart3 = echarts.init(document.getElementById('echart3'));
+    //机房设备数量
+    var option1 = {
+        tooltip: {
+            trigger: 'item',
+            formatter: "{b}: {c}:({d}%)"
+        },
+        legend: {
+            orient: 'horizontal',
+            x:'center',
+            y: 'bottom',
+            data:['服务器','交换机','防火墙','UPS','空调'],
+            textStyle:{    //图例文字的样式
+                color:'white',
+                fontSize:10
+            }
+        },
+        color:['#46acf4','#3794ed','#55b85a','#29a89d','#3f76d0'],
+        series: [
+            {
+                name:'',
+                type:'pie',
+                selectedMode: 'single',
+                radius: [0, '80%'],
+                label: {
+                    normal: {
+//                        show: false,
+                        position: 'inner'
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data:[
+                    {value:335, name:'服务器'},
+                    {value:679, name:'交换机'},
+                    {value:679, name:'防火墙  '},
+                    {value:679, name:'UPS'},
+                    {value:679, name:'空调'}
+                ]
+            }
+        ]
+    };
+    //机房接入情况
+    var option2 = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{b} : {c}"
+        },
+        legend: {
+            orient: 'horizontal',
+            x:'center',
+            y: 'bottom',
+            data:['服务器','防火墙','交换机','其他'],
+            textStyle:{    //图例文字的样式
+                color:'white'
+            }
+        },
+        color:['#3db3f7','#51a9fe','#76a3ef','#0abed9'],
+        series : [
+            {   name:'',
+                type:'pie',
+                radius : [0,80],
+                center : ['50%', '50%'],
+                roseType : 'radius',
+                data:[
+                    {value:10, name:'服务器'},
+                    {value:15, name:'防火墙'},
+                    {value:15, name:'交换机'},
+                    {value:16, name:'其他'}
+                ],
+                itemStyle:{
+                    normal:{
+                        label:{
+                            show: true,
+                            formatter: '{d}%',
+                            textStyle:{
+                                fontSize:12,
+                                color:'white'
+                            },
+                            position : 'inner'
+                        },
+                        labelLine :{show:true}
+                    }
+                }
+            }
+        ]
+    };
+    //运行状态
+    var option3 = {
+//        title: {
+//            text: '存储灾备数据趋势图',
+//            textStyle:{
+//                fontSize: 14,
+//                color:'#d38819'
+//            }
+//        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+//            show:false,
+//            x:'center',
+//            y: 'bottom',
+            data:['存储容量','存储容量1','存储容量2','存储容量3','存储容量4'],
+            textStyle:{    //图例文字的样式
+                color:'white',
+                fontSize:10
+            }
+
+        },
+        color:['#78BDFD','#9B95FD','#58CB6C','#2AB9FD','#FFC17A',''],
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                axisLine:{
+                    lineStyle:{
+                        color:'white'
+                    }
+                },
+                data: ["2007","2008","2010","2011","2012","2013","2014","2015","2016","2017"]
+            }
+        ],
+        yAxis: {
+            type : 'value',
+//            name:'单位:TB',
+            axisLabel : {
+                formatter: '{value}'
+            },
+            axisLine:{
+                lineStyle:{
+                    color:'#8f90ed'
+                }
+            }
+        },
+
+        series : [
+            {
+                name: '存储容量',
+                type: 'bar',
+                data: [5,5, 20, 36, 10, 10, 20, 36, 10, 10]
+            },
+            {
+                name: '存储容量1',
+                type: 'bar',
+                data: [5,5, 20, 36, 10, 10, 20, 36, 10, 10]
+            },
+            {
+                name: '存储容量2',
+                type: 'bar',
+                data: [5,5, 20, 36, 10, 10, 20, 36, 10, 10]
+            },
+            {
+                name: '存储容量3',
+                type: 'bar',
+                data: [5,5, 20, 36, 10, 10, 20, 36, 10, 10]
+            },
+            {
+                name: '存储容量4',
+                type: 'bar',
+                data: [5,5, 20, 36, 10, 10, 20, 36, 10, 10]
+            }
+        ]
+    };
+
+    myChart1.setOption(option1);
+    myChart2.setOption(option2);
+    myChart3.setOption(option3);
+
+
+    //    表格
+    var dataSet = [
+        [ "UPS电源", "2 ", "2 ", "12", "31"],
+        [ "空调系统", "2 ", "3 ", "12", "31"],
+        [ "监控系统", "13", "43", "12", "31"],
+        [ "配电系统", "17", " 32", "12", "31"],
+        [ "网络故障", "14", "23 ", "12", "31"],
+        [ "网络故障", "14", " 3", "12", "31"],
+        [ "网络故障", "14", "4 ", "12", "31"],
+        [ "网络故障", "14", " 5", "12", "31"],
+        [ "网络故障", "14", " 6", "12", "31"],
+        [ "网络故障", "14", "67 ", "12", "31"],
+        [ "网络故障", "14", "5 ", "12", "31"],
+        [ "网络故障", "14", "2 ", "12", "31"]
+    ];
+
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "aLengthMenu": [[4, 10, 15, 20], [ "All"]],
+            data: dataSet,
+            columns: [
+                { title: "设备名称" },
+                { title: "巡检次数"},
+                { title: "故障次数" },
+                { title: "处理次数" },
+                { title: "遗留故障次数" }
+            ]
+        } );
+    } );
+
+
+</script>
+<script src="js/centerPlant.js"></script>
+</html>

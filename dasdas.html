@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>CSS自定义个性Title标签</title>
+    <meta http-equiv="content-Type" content="text/html;charset=gb2312">
+</head>
+<body>
+<!--把下面代码加到<body>与</body>之间-->
+自定义title(IE)：把鼠标放在下面的文字上查看效果：<br><br>
+<span title="www.fsfds.cn">默认效果</span><br><br>
+<span title="<marquee style='width:100px;'>www.CsrCode.cn</marquee>" altbg="red" altcolor="yellow" altborder="yellow">滚动字幕</span><br><br>
+<span title="<img src='/images/logo.gif' border='0'>" altbg="#F7F7F7" altcolor="#999999" altborder="#CCCCCC">图片</span><br><br>
+<span title="<i style='font-size:24pt;font-family:verdana;'>www.CsrCode.cn</i>" altbg="green" altcolor="yellow" altborder="darkgreen">大字体</span><br><br>
+<div style="display:none;border:1px solid #000000;background-color:#FFFFCC;font-size:12px;position:absolute;padding:2px;" id=altlayer></div>
+<SCRIPT LANGUAGE="JavaScript">
+//    document.body.onmousemove=quickalt;
+    document.body.onmouseover=getalt;
+    document.body.onmouseout=restorealt;
+    var tempalt='';
+    function getalt(){
+        if(event.srcElement.title && (event.srcElement.title!='' || (event.srcElement.title=='' && tempalt!=''))){
+            altlayer.style.left=event.x;
+            altlayer.style.top=event.y+20;
+            altlayer.style.display='';
+            tempalt=event.srcElement.title;
+            tempbg=event.srcElement.altbg;
+            tempcolor=event.srcElement.altcolor;
+            tempborder=event.srcElement.altborder;
+            event.srcElement.title='';
+            altlayer.innerHTML=tempalt;
+            if (typeof(tempbg)!="undefined"){altlayer.style.background=tempbg}else{altlayer.style.background="infobackground"}
+            if (typeof(tempcolor)!="undefined"){altlayer.style.color=tempcolor}else{altlayer.style.color=tempcolor="infotext"}
+            if (typeof(tempborder)!="undefined"){altlayer.style.border='1px solid '+tempborder;}else{altlayer.style.border='1px solid #000000';}
+        }
+    }
+//    function quickalt(){
+//        if(altlayer.style.display==''){
+//            altlayer.style.left=event.x;
+//            altlayer.style.top=event.y+10;
+//        }
+//    }
+    function restorealt(){
+        event.srcElement.title=tempalt;
+        tempalt='';
+        altlayer.style.display='none';
+    }
+</SCRIPT>
+</body>
+</html>
+

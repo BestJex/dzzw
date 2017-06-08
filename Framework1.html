@@ -13,7 +13,7 @@
 </head>
 <body style="background: #eaedf1">
 <div class="box Framework">
-    <div class="content">
+    <div class="content color_74d673">
         <div class="top_box_33 Framework_head">
             <!--<div class="Framework_head_left public_left Framework_head_left1">-->
                 <!--<div class="Framework_head_left_box">-->
@@ -61,7 +61,7 @@
                 <!--</div>-->
             <!--</div>-->
             <div class="Framework_head_icons">
-                <img src="images/Framework_head_icon2.png" alt="">
+                <img src="images/Framework_head_icon1.png" alt="">
             </div>
             <div class="tap_box_blue">
                 <div class="Framework_head_box">
@@ -94,7 +94,7 @@
                 <!--</div>-->
             <!--</div>-->
             <div class="Framework_head_icons">
-                <img src="images/Framework_head_icon3.png" alt="">
+                <img src="images/Framework_head_icon1.png" alt="">
             </div>
             <div class="tap_box_blue">
                 <div class="Framework_head_box">
@@ -188,7 +188,7 @@
                 </div>
                 <div class="Framework_content_right Percentage public_right">
                     <!--<img src="images/Framework_1.png" alt="">-->
-                    <div id="main1" style="width:100%;height:197px;border:1px solid #ccc;margin-top: 10px;border-radius: 30px" class="Framework_main1 borderRadius"></div>
+                    <div id="main1" style="width:100%;height:197px;border:0;background: #f7f7f7;margin-top: 10px;border-radius: 30px"></div>
                 </div>
             </div>
             <!--content_content-->
@@ -534,7 +534,7 @@
 
 
 //IP用量
-       var barWidth1=20;
+       var barWidth1=30;
        var bar1=$('.cent_Bar .Bar_bar1');
        var bar1_span=$('.cent_Bar .Bar_bar1 span');
        if(barWidth1<60){
@@ -570,14 +570,14 @@
        var bar2=$('.cent_Bar .Bar_bar2');  //
        var bar2_span=$('.Framework_content_block_right .Bar .ktdx');  //宽带独享背景颜色
        var bar2_ktgx=$('.cent_Bar .Bar_bar2  .ktgx');  //宽带共享背景颜色
-       bar2_span.css({width:barWidth2+'%',background:'#916fff',border:'1px solid #916fff'});
-       bar2_ktgx.css({width:ktgxWidth+'%',background:'#cc99ff',border:'1px solid #cc99ff',marginLeft:barWidth2+'%'});
+       bar2_span.css({width:barWidth2+'%',background:'#d54d35',border:'1px solid #d54d35'});
+       bar2_ktgx.css({width:ktgxWidth+'%',background:'#f79483',border:'1px solid #f79483',marginLeft:barWidth2+'%'});
        bar2.css({width:100+'%'}); //
        bar2_span.html(barWidth2+'%');   //宽带独享百分比
        bar2_ktgx.html(ktgxWidth+'%');  //宽带共享百分比
 
 //       圆形进度条
-       var PieChart=5;
+       var PieChart=36;
        if(PieChart>100){
            PieChart=0;
            $('.Pie_chart_circle').removeClass('Pie_chart_clip_auto');
@@ -642,11 +642,7 @@
                    name:pieData[i].name,
                    itemStyle:{
                        normal:{
-                           color:'#A79BF5'
-                       },
-                       emphasis:{
-                           label:{show:false},
-                           color:'#916FFF'
+                           color:'#0fe3d9'
                        }
                    }
                }
@@ -656,7 +652,7 @@
                    name:pieData[i].name,
                    itemStyle:{
                        normal:{
-                           color:'#8d8bff'
+                           color:'#48fbf3'
                        }
                    }
                }
@@ -674,7 +670,7 @@
 //    词云图
         var myChart1 = echarts.init(document.getElementById('main1'));
         var option1  = {
-
+            backgroundColor: '#f7f7f7',
             tooltip: {},
             series: [{
                 type: 'wordCloud',

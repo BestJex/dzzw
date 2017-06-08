@@ -1,0 +1,344 @@
+/*公共*/
+*{
+    padding: 0;
+    margin: 0;
+}
+.public_left{
+    float: left!important;
+}
+.public_right{
+    float: right!important;
+}
+/*小字体*/
+.text-Small{
+    font-size: 20px;
+}
+/*字体颜色*/
+.color_666666{
+    color: #666666;
+}
+.color_333{
+    color: #333;
+}
+.color_227ad3{
+    color: #227ad3;
+}
+.color_333{
+    color:#333 ;
+}
+.color_147de1{
+    color: #147de1;
+}
+.color_3abf51{
+    color: #3abf51;
+}
+.color_8a82fd{
+    color: #8a82fd;
+}
+.color_15adf4{
+    color: #15adf4;
+}
+/*背景颜色*/
+.background_eaedf1{
+    background: #eaedf1;
+}
+.background_ff8761{
+    background: #ff8761;
+}
+.background_f2805c{
+    background: #f2805c;
+}
+.background_57bdde{
+    background: #57bdde;
+}
+.background_53b3d3{
+    background: #53b3d3;
+}
+.background_b198dc{
+    background: #b198dc;
+}
+.background_a890d1{
+    background: #a890d1;
+}
+/*字体大小*/
+.fontsize_14{
+    font-size: 14px;
+}
+.fontsize_16{
+    font-size: 16px;
+}
+.fontsize_30{
+    font-size: 30px;
+}
+.fontsize_18{
+    font-size: 18px;
+}
+/*li*/
+li{
+    list-style: none;
+}
+/*阴影*/
+.yhsy_boxShadow{
+    /*box-shadow: 0 0 40px rgb(220, 24, 21);*/
+    box-shadow: 0 0 10px rgba(213, 216, 220, 1);
+}
+/*头部*/
+.yhsy_head{
+    height: 30px;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+}
+.yhsy_head_left1{
+    margin-left: 2%;
+}
+.yhsy_head_left1,.yhsy_head_left3{
+    width: 60px;
+    height: 100%;
+    float: left;
+}
+.yhsy_head_left2{
+    width: 80%;
+    height: 100%;
+    float: left;
+}
+.yhsy_head_left2 ul{
+    color: #227ad3;
+    height: 30px;
+    overflow: hidden;
+    line-height: 30px;
+}
+.yhsy_head_left2 li{
+    float: left;
+    margin-right: 15px;
+}
+/*box-shadow: 0 0 10px rgba(165, 177, 193, 0.6);*/
+/*内容*/
+.yhsy_content{
+    width: 94%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+.yhsy_headBox{
+    width: 100%;
+    margin: 20px auto;
+    height: 200px;
+    background: white;
+    box-shadow: 0 0 10px rgba(213, 216, 220, 1);
+}
+.yhsy_headBoxwrap1{
+    width: 33.33%;
+    height: 100%;
+    background:#f9fafc;
+}
+.yhsy_headBoxwrap2{
+    width: 66.66%;
+    height: 100%;
+    overflow: hidden;
+}
+/**/
+.yhsy_headBox_wrap{
+    overflow: hidden;
+    width: 302px;
+    margin: 47px auto;
+}
+.yhsy_headBox_wrap .public_left{
+    width: 102px;
+}
+.yhsy_headBox_wrap .public_right{
+    width: 200px;
+}
+
+.yhsy_headBoxWrap p{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+.yhsy_headBoxWrap{
+    height:100%;
+    margin-top: 30px;
+}
+/*右侧*/
+.yhsy_headBoxwrap2 .yhsy_headBox_Rwrap{
+    float: left;
+    margin-top: 42px;
+    margin-left: 2.25%;
+    width: 30%;
+    height: 116px;
+    overflow: hidden;
+}
+.Rwrap_innerLeft{
+    width: 66.66%;
+    height: 100%;
+}
+.Rwrap_innerLefts {
+    height: 66px;
+    margin-top: 24px;
+    color: white;
+    padding-left: 10%;
+}
+.Rwrap_innerLefts p {
+    line-height: 30px;
+}
+.Rwrap_innerRight {
+    width: 33.33%;
+    height: 100%;
+}
+.Rwrap_innerRight .Rwrap_innerRights{
+    width: 37px;
+    height: 35px;
+    margin: 40px auto;
+}
+/*电子政务*/
+.yhsy_block{
+    width: 100%;
+    height: 347px;
+}
+.yhsyBlock{
+    margin-bottom: 15px;
+    width: 49%;
+    height: 350px;
+    background: white;
+}
+.yhsyBlock h3{
+    margin-top: 30px;
+    margin-left: 35px;
+    margin-bottom: 50px;
+}
+.yhs-inners{
+    width:86%;
+    height: 100px;
+    margin: 28px auto 20px;
+}
+.yhs-inner_1,.yhs-inner_2{
+    width: 48%;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.yhs-inners_1{
+    width: 100%;
+    height: 63px;
+    margin-top:18px;
+}
+.yhs-inners_1_1{
+    width: 35%;
+    height: 100%;
+    line-height: 58px;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
+    text-align: center;
+}
+.yhs-inners_1_1 img{
+    vertical-align: middle;
+}
+.yhs-inners_1_2{
+    width: 65%;
+    height: 100%;
+}
+.yhs-inners_1_3{
+    width: 45%;
+    padding-left: 5%;
+    text-align: center;
+}
+.yhs-inners_1_3S{
+    border-right:1px solid #ccc ;
+    box-sizing: border-box;
+}
+.yhs-inners_1_3 p{
+    height: 30px;
+    line-height: 30px;
+}
+.yhs-inners_1_2 p{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 5%;
+}
+/*集中机房*/
+.yhs-regions{
+    width: 86%;
+    margin: -15px auto 0;
+    overflow: hidden;
+}
+.yhs-regions_left,.yhs-regions_right{
+    width: 49%;
+    height: 100%;
+}
+.yhs-regions .yhs-inner_1 {
+    width: 96%;
+    margin: 17px auto 25px;
+}
+/* <!--政务短信系统-->*/
+
+.yhsyContent{
+    height: 230px;
+    width: 100%;
+
+    /*overflow: hidden;*/
+}
+.yhsy_contentBox{
+    width: 49%;
+    height: 100%;
+    background: white;
+}
+.yhsy_contentBox h3{
+    margin-top: 30px;
+    margin-left: 35px;
+    margin-bottom: 50px;
+}
+.yhs-inner_wrap{
+    padding: 1%;
+    width: 48%;
+    height: 100px;
+    background: white;
+    margin-top: -8px;
+    overflow: hidden;;
+}
+.yhs-wrap{
+    width: 42%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.yhs-wrap .yhs-inners_1_2{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+.yhs-border.public_left {
+    width: 1px;
+    height: 100px;
+    margin: 0 5px 0;
+    background: #ccc;
+}
+
+/*用户首页三级*/
+.yhsySanji{
+    width: 1200px;
+    margin: 0 auto;
+}
+.yhsySanji_head{
+
+}
+.yhsySanji_box{
+    height: 500px;
+    text-align: center;
+    background: white;
+}
+.yhsySanji_inner{
+    width: 1000px;
+    margin: 0 auto;
+    border-top:1px solid #CCCCCC ;
+    position: relative;
+}
+
+
+
+
+
