@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>机柜托管服务</title>
+    <link rel="stylesheet" href="css/jrfw.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <style>
+        .jrfw_container .jrfw_mainbav {
+            width: 500px;
+        }
+        .jrfw_topnav .jrfw_mainbav {
+            width: 500px;
+        }
+        /*buju*/
+        .layout {
+            display: table;
+            width: 1200px;
+            margin:0 auto;
+            table-layout: fixed;
+            overflow: hidden;
+        }
+        .layout_left {
+            display: table-cell;
+            width: 200px;
+            position: relative;
+            /*border: 1px solid red ;*/
+            /*box-sizing: border-box;*/
+            overflow: hidden;
+        }
+        .layout_right {
+            display: table-cell;
+            /*宽度为剩余宽度*/
+            overflow: hidden;
+        }
+        .layout_right_content{
+            margin-top: 120px;
+        }
+        .jrfw_innerLeft1 .jrfw_warpLeft {
+            width: 62px;
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+            left: 50%;
+            margin-left: -31px;
+        }
+        /*内容*/
+
+        .jrfw_container .jrfw_text {/
+            width: 530px;
+        }
+        .jrfw_box .jrfw_title1 {
+            width: 12%;
+        }
+        .jrfw_box .jrfw_borders {
+            width: 88%;
+        }
+    </style>
+</head>
+<body class="jrfw_bgs jrfw_jgtg">
+<div class="layout jrfw_container">
+    <div class="layout_left">
+        <!--菜单-->
+        <ul id="accordion" class="accordion">
+            <li>
+                <div class="link_ul"><a href="#"><img src="sanji_nav.png" alt=""><span class="link_ul_text">基础设施</span></a><span class="link_ul_span"><i class="img1"></i></span></div>
+                <ul class="link_ul_submenu show">
+                    <li>
+                        <div class="link"><a href="#">政务集中机房</a></div>
+                        <ul class="submenu">
+                            <li><a href="#"><i class="square"></i>机房托管服务</a></li>
+                            <li><a href="#"><i class="square"></i>设备托管服务</a></li>
+                            <li><a href="#"><i class="square"></i>机柜托管服务</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="link"><a href="#">电子政务外网</a></div>
+                        <ul class="submenu">
+                            <li><a href="#"><i class="square"></i>办公网接入服务</a></li>
+                            <li><a href="#"><i class="square"></i>专网划分服务</a></li>
+                            <li><a href="#"><i class="square"></i>业务系统映射服务</a></li>
+                            <li><a href="#"><i class="square"></i>独享互联网开通服务</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="link"><a href="#">数据存储与灾备系统</a></div>
+                        <ul class="submenu">
+                            <li><a href="#"><i class="square"></i>数据存储服务</a></li>
+                            <li><a href="#"><i class="square"></i>数据备份服务</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="link_ul"><a href="#"><img src="sanji_nav.png" alt=""><img src="sanji_nav.png" alt=""><span class="link_ul_text">公共应用</span></a><span class="link_ul_span"><i class="img2"></i></span></div>
+                <ul class="link_ul_submenu hidden">
+                    <li>
+                        <div class="link"><a href="#">数据资源交换共享平台</a></div>
+                        <ul class="submenu">
+                            <li><a href="#"><i class="square"></i>交换平台接入服务</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="link"><a href="#">政务短信系统</a></div>
+                        <ul class="submenu">
+                            <li><a href="#"><i class="square"></i>政务短信接入服务</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="link"><a href="#">政务邮箱系统</a></div>
+                        <ul class="submenu">
+                            <li><a href="#"><i class="square"></i>政务邮箱服务</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="link_ul"><a href="#"><img src="sanji_nav.png" alt=""><img src="sanji_nav.png" alt=""><span class="link_ul_text">政务安全</span></a><span class="link_ul_span"><i class="img2"></i></span></div>
+                <ul class="link_ul_submenu hidden">
+                    <li>
+                        <div class="link"><a href="#">CA 认证平台</a></div>
+                        <ul class="submenu">
+                            <li><a href="#"><i class="square"></i>RA账户管理服务</a></li>
+                            <li><a href="#"><i class="square"></i>电子证据保全服务</a></li>
+                            <li><a href="#"><i class="square"></i>可信网站服务</a></li>
+                            <li><a href="#"><i class="square"></i>客户端身份认证服务</a></li>
+                            <li><a href="#"><i class="square"></i>时间戳服务</a></li>
+                            <li><a href="#"><i class="square"></i>安全电子签章服务</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="link"><a href="#">政务短信系统</a></div>
+                        <ul class="submenu">
+                            <li><a href="#"><i class="square"></i>政务短信接入服务</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <div class="layout_right">
+        <div class="layout_right_content">
+            <p><img src="images/jrfw_jgtg.png" alt=""><span class="jrfw_title">机柜托管服务</span></p>
+            <p class="jrfw_text">
+                机柜托管服务是为市级部门提供单独42U标准机柜以及相关配套设施的服务，申请的机柜只为本部门服务，其他部门业务系统不得使用，主要分配对应的机柜、网络IP地址等资源。
+            </p>
+            <p class="jrfw_button"><span class="jrfw_buttonLeft borderRadius">开通申请</span><span class="jrfw_buttonRight borderRadius">变更申请</span></p>
+            <ul class="jrfw_mainbav">
+                <!--<li class="jrfw_fwjs lis">服务介绍</li>-->
+                <li class="jrfw_fwfw">服务对象</li>
+                <li class="jrfw_fwlc">申请流程</li>
+                <li class="jrfw_sqcl">申请材料</li>
+                <li class="jrfw_fwzxdh">服务咨询电话</li>
+                <li class="jrfw_fwxy">服务协议</li>
+            </ul>
+            <div class="jrfw_borders"></div>
+
+            <!--服务对象-->
+            <div class="jrfw_box" id="jrfw_fwfw">
+                <div class="public_left jrfw_title1">服务对象</div>
+                <div class="public_right jrfw_borders"></div>
+            </div>
+            <div class="jrfw_box jrfw_inner">
+                <div class="jrfw_innerLeft public_left ">
+                    <div class="jrfw_innerLeft1 public_left">
+                        <div class="jrfw_warpLeft">
+                            <img src="images/jrfw_szb1.png"  alt="">
+                        </div>
+                    </div>
+                    <div class="jrfw_innerRight1 public_right">
+                        <div class="jrfw_warpsRight">
+                            <p>本市各级党委、人大、政府、政协、法院、 检察院等单位</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="jrfw_innerLeft public_left  jrfw_innerLeft_left">
+                    <div class="jrfw_innerLeft1 public_left">
+                        <div class="jrfw_warpLeft">
+                            <img src="images/jrfw_szb1.png"  alt="">
+                        </div>
+                    </div>
+                    <div class="jrfw_innerRight1 public_right">
+                        <div class="jrfw_warpsRight">
+                            <p>其他财政预算单位，经同级主管部门审核 同意后可以使用</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="jrfw_innerRight public_right ">
+                    <div class="jrfw_innerLeft1 public_left">
+                        <div class="jrfw_warpLeft">
+                            <img src="images/jrfw_szb1.png"  alt="">
+                        </div>
+                    </div>
+                    <div class="jrfw_innerRight1 public_right">
+                        <div class="jrfw_warpsRight">
+                            <p>确有需要的非财政预算单位，经同级主管 部门和同级财政部门审核同意后可以使用</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--申请流程-->
+            <div class="jrfw_box" id="jrfw_fwlc">
+                <div class="public_left jrfw_title1">申请流程</div>
+                <div class="public_right jrfw_borders"></div>
+            </div>
+            <div class="jrfw_yycj">
+                <img src="images/jrfw_fwlc.png"  alt="">
+            </div>
+
+            <!--申请材料-->
+            <div class="jrfw_box" id="jrfw_sqcl">
+                <div class="public_left jrfw_title1">申请材料</div>
+                <div class="public_right jrfw_borders"></div>
+            </div>
+            <div class="jrfw_sqclInner">
+                <div class="public_left jrfw_sqclInner_left">
+                    <h3>申请函</h3>
+                    <div class="jrfw_sqclBox">
+                        <p class="jrfw_sqclBox_p"> <span class="jrfw_sqclBox_span"></span>通过公交交换至成都市经济和信息化委员会</p>
+
+                    </div>
+                    <button>了解更多</button>
+                </div>
+                <div class="public_right jrfw_sqclInner_right">
+                    <h3>申请表单</h3>
+                    <div class="jrfw_sqclBox">
+                        <p class="jrfw_sqclBox_p"><span class="jrfw_sqclBox_span"></span>登录系统后查看</p>
+
+                    </div>
+                    <button>了解更多</button>
+                </div>
+            </div>
+
+            <!--服务咨询电话-->
+            <div class="jrfw_box" id="jrfw_fwzxdh">
+                <div class="public_left jrfw_title1" style="width: 18%">服务咨询电话</div>
+                <div class="public_right jrfw_borders" style="width: 82%"></div>
+            </div>
+            <div class="jrfw_szxdhInner">
+                <div class="jrfw_szxdhInner_left public_left">
+                    <img src="images/fwzxdh_1.png"  alt=""> <span>028-61885991</span>
+                </div>
+                <div class="jrfw_szxdhInner_left public_left">
+                    <img src="images/fwzxdh_2.png"  alt=""> <span>工作时间：工作日9:00~17:00</span>
+                </div>
+                <div class="jrfw_szxdhInner_left public_left">
+                    <span><img src="images/fwzxdh_3.png"  alt=""></span> <span class="jrfw_szxdhInner_text">联系地址:成都市天府大道北段蜀锦路68号 （政府第四办公区）  </span>
+                </div>
+            </div>
+            <div class="jrfw_szxdh_dt">
+                <img src="images/ditu.png"  alt="">
+            </div>
+
+            <!--服务协议-->
+            <div class="jrfw_box" id="jrfw_fwxy">
+                <div class="public_left jrfw_title1">服务协议</div>
+                <div class="public_right jrfw_borders"></div>
+            </div>
+            <div class="jrfw_xyBox">
+                <div class="jrfw_xy">
+                    <div class="public_left">最新服务协议文档20170514</div>
+                    <div class="public_right "><span class="jrfw_xy_XZ borderRadius"><img src="images/jrfw_xiazai.png"  alt="">下载</span></div>
+                </div>
+                <div class="jrfw_xy">
+                    <div class="public_left">最新服务协议文档20170515</div>
+                    <div class="public_right "><span class="jrfw_xy_XZ borderRadius"><img src="images/jrfw_xiazai.png"  alt="">下载</span></div>
+                </div>
+                <div class="jrfw_xy">
+                    <div class="public_left">最新服务协议文档20170516</div>
+                    <div class="public_right "><span class="jrfw_xy_XZ borderRadius"><img src="images/jrfw_xiazai.png"  alt="">下载</span></div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+<!--固定导航-->
+<div class="jrfw_topnav" style="display: block;">
+    <ul class="jrfw_mainbav ">
+        <!--<li class="jrfw_fwjs lis">服务介绍</li>-->
+        <li class="jrfw_fwfw">服务对象</li>
+        <li class="jrfw_fwlc">申请流程</li>
+        <li class="jrfw_sqcl">申请材料</li>
+        <li class="jrfw_fwzxdh">服务咨询电话</li>
+        <li class="jrfw_fwxy">服务协议</li>
+    </ul>
+</div>
+<!--回到顶部-->
+<div class="cd-top">Top</div>
+</body>
+<script src="js/jrfw1.js"></script>
+<script>
+    $(function () {
+        $(".accordion .link").next(".submenu").show();
+        $(".accordion  .link_ul span").click(function () {
+            if($(this).parent().next(".link_ul_submenu").css('display')=='block'){
+                $(this).parent().next('.link_ul_submenu').slideUp(); //就隐藏
+                $(this).parent().find('i').addClass('img2').removeClass('img1');
+            }else{
+                $(this).parent().find('i').addClass('img1').removeClass('img2');
+                $(this).parent().next('.link_ul_submenu').slideDown();  //就展开
+            }
+        });
+
+
+//选中加颜色
+        $('.accordion  a').bind('click', function(){
+            $('a').removeClass('A_background');
+            $('a').find('.square').removeClass('square1');
+            $(this).addClass('A_background');
+            $(this).find('.square').addClass('square1');
+
+        });
+
+    });
+
+
+</script>
+</html>

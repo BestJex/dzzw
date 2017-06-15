@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Bootstrap 提示工具(Tooltip)插件方法的用法</title>
+    <meta charset="utf-8" />
+    <meta name="viewport"content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div style="padding:50px">
+    这是一个<a href="#" class="tooltip-show" data-toggle="tooltip" title="show">tooltip方法show</a>
+    这是一个<a href="#" class="tooltip-hide" data-toggle="tooltip" title="hide">tooltip方法hide</a>
+    这是一个<a href="#" class="tooltip-toggle" data-toggle="tooltip" title="toggle">tooltip方法toggle</a>
+    这是一个<a href="#" class="tooltip-destroy" data-toggle="tooltip" title="destroy">tooltip方法destroy</a>
+    <br /><br /><br /><br /><br /><br />
+    <p class="tooltip-option">
+        这是一个<a href="#"data-toggle="tooltip"title="<h2>'am Header2
+</h2>">tooltip方法option</a>
+    </p>
+</div>
+<script>
+    $(document).ready(function () {
+//$("a[data-toggle='tooltip']").tooltip();
+        $(".tooltip-show").tooltip("show");
+//        $(".tooltip-hide").tooltip("hide");
+//        $(".tooltip-toggle").tooltip("toggle");
+//        $(".tooltip-destroy").tooltip("destroy");
+//        $(".tooltip-option a").tooltip({html:true});
+    })
+</script>
+</body>
+</html>
