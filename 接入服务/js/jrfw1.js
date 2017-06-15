@@ -18,12 +18,12 @@ $(function ($) {
     $(window).scroll(function(){
         // console.log($(window).scrollTop());
         //顶部固定菜单
-        if($(window).scrollTop()>430){
-            $(".jrfw_topnav").show();
-
-        }else{
-           // $(".jrfw_topnav").hide();
-        }
+        // if($(window).scrollTop()>430){
+        //     $(".jrfw_topnav").show();
+        //
+        // }else{
+        //    // $(".jrfw_topnav").hide();
+        // }
         //左侧菜单
         if(($(window).height())>($("#accordion").height())){
             if(($(window).scrollTop()>230)&&($(window).scrollTop()<430)){
