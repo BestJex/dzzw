@@ -22,7 +22,7 @@ $(function ($) {
             $(".jrfw_topnav").show();
 
         }else{
-            $(".jrfw_topnav").hide();
+           // $(".jrfw_topnav").hide();
         }
         //左侧菜单
         if(($(window).height())>($("#accordion").height())){
