@@ -29,13 +29,25 @@ li{
 
 
 /*content*/
-.fw_content1{
+.fw_content_ggyy{
     height: 480px;
     background:url("../images/ban_ggyy.png")no-repeat;
+    background-size: 100% 100%;
 }
-.fw_content2{
+.fw_content_jcss{
     height: 480px;
     background:url("../images/ban_jcss.png")no-repeat;
+    background-size: 100% 100%;
+}
+.fw_content_dzzwww{
+    height: 480px;
+    background:url("../images/fw_dzzwww_bg.png")no-repeat;
+    background-size: 100% 100%;
+}
+.fw_content_zwaqxt{
+    height: 480px;
+    background:url("../images/ban_zwaq.png")no-repeat;
+    background-size: 100% 100%;
 }
 .fw_content{
     width: 100%;
@@ -96,10 +108,11 @@ li{
 .fw_content-warps .fw_content-warp{
     position: relative;
     width: 22%;
-    height: 340px;
+    height: 370px;
     float: left;
     margin-right: 2%;
     padding-left: 10px;
+    margin-bottom: 10px;
 }
 /*.fw_content-warps .fw_content-warp:first-child{*/
     /*padding-left: 10px;*/
