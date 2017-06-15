@@ -2,17 +2,56 @@
  * Created by Administrator on 2017/5/17 0017.
  */
 $(function ($) {
-//点击事件
-
-
+//判断滚动条滚动方向
+    function scroll( fn ) {
+        var beforeScrollTop = document.body.scrollTop,
+            fn = fn || function() {};
+        window.addEventListener("scroll", function() {
+            var afterScrollTop = document.body.scrollTop,
+                delta = afterScrollTop - beforeScrollTop;
+            if( delta === 0 ) return false;
+            fn( delta > 0 ? "down" : "up" );
+            beforeScrollTop = afterScrollTop;
+        }, false);
+    }
+    // 滚动条位置
     $(window).scroll(function(){
         // console.log($(window).scrollTop());
+        //顶部固定菜单
         if($(window).scrollTop()>430){
             $(".jrfw_topnav").show();
 
         }else{
             $(".jrfw_topnav").hide();
         }
+        //左侧菜单
+        if(($(window).height())>($("#accordion").height())){
+            if(($(window).scrollTop()>230)&&($(window).scrollTop()<430)){
+                $("#accordion").css({'position':'fixed','top':'50px'});
+
+            }else if($(window).scrollTop()>430){
+                $("#accordion").css({'position':'fixed','top':'50px'});
+
+            }else {
+                $("#accordion").css({'position':'fixed','top':'50px'});
+            }
+        }else  if(($(window).height())<($("#accordion").height())){
+            var aa=$("#accordion").height()-$(window).height()+20;
+            scroll(function(direction) {
+                if(direction=='down'){
+                    $("#accordion").css({'position':'fixed','top':-aa});
+                }else{
+                    if($(window).scrollTop()>430){
+                        $("#accordion").css({'position':'fixed','top':'50px'});
+
+                    }else {
+                        $("#accordion").css({'position':'fixed','top':'50px'});
+                    }
+                }
+            });
+            $("#accordion").css({'position':'fixed','top':-aa});
+        }
+        //顶部固定菜单样式
         var jrfw_fwfw=$("#jrfw_fwfw").offset().top-50;  //475
         var jrfw_fwlc=$("#jrfw_fwlc").offset().top-50;   //720
         var jrfw_sqcl=$("#jrfw_sqcl").offset().top-50;  //1337
@@ -51,7 +90,7 @@ $(function ($) {
              }
          }
     });
-//点击菜单，滚动到指定位置
+//点击顶部菜单，滚动到指定位置
     $('.jrfw_mainbav  li,.jrfw_topnav .jrfw_mainbav li').each(function() {
         $(this).click(function() {
             // $(".jrfw_mainbav li").removeClass("lis");
